@@ -22,6 +22,8 @@ body{
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    align-items: center;
+    justify-content: center;
 }
 h1{
     font-size: 3rem;
@@ -48,15 +50,19 @@ header{
     padding: 1rem;
     border-radius: 24px;
     nav{
+        display: flex;
+        justify-content: center;
         menu{
             display: flex;
             gap: 2rem;
+            justify-content: center;
             li{
                 list-style: none;
             
                 a{
                     text-decoration: none;
                     color: var(--subtext-color);
+                    text-wrap: nowrap;
                 }
                 a:hover{
                     color: var(--primary-color);
@@ -92,6 +98,10 @@ section{
     justify-content: space-around;
     align-items: center;
     max-height: 85svh;
+}
+#m-video{
+    width: 50%;
+    aspect-ratio: 16/9;
 }
 #about-me{
     margin-top: 1rem;
@@ -212,7 +222,7 @@ section{
     border-radius: 36px;
     background: var(--glass-bg);
     padding: 1rem;
-    height: 95%;
+    max-height: 95%;
     p{
         color: var(--secondary-color)!important;
         text-align: left;
@@ -270,13 +280,25 @@ body.modal-open {
   }
 
 @media screen and (max-width: 920px){
+    #m-video{
+        width: 100%;
+    }
     .img-des{
         flex-direction: column-reverse;
     }
     #hero{
-        height: 90svh;
+        height: 80svh;
         img{
-            max-height: 50svh;
+            max-height: 42svh;
+        }
+    }
+    .gallery-grid{
+        div{
+            max-width: 10rem;
+            padding: 1rem;
+            img{
+                width: 9rem;
+            }
         }
     }
     #about-me{
@@ -285,6 +307,22 @@ body.modal-open {
     #about-text{
         width: 100%;
     }
+
+}
+@media screen and (max-width:560px) {
+    header{
+        nav{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        
+        menu{
+            display: flex;
+            justify-content: center;
+        }
+    }
+    }
+    
 }
 @media (prefers-color-scheme: light) {
     .glass{
