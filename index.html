@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Steve Sajan Jacob</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="utils.css">
+    <link rel="stylesheet" href="utils.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
   </head>
   <header>
@@ -24,11 +28,14 @@
       </menu>
     </nav>
   </header>
-  <body>
+  <body id="body">
     <section id="hero" class="img-des">
       <div id="hero-txt">
         <h1>Hi, I am <span class="primary-text">Steve Sajan Jacob</span></h1>
         <h2 class="subtext">I am a Full Stack Developer</h2>
+        <h3 class="subtext"><a href="tel:+916238936248">+91 6238 936 248</a></h3>
+        <h3 class="subtext"><a href="mailto:steve@stevesajanjacob.com">steve@stevesajanjacob.com</a></h3>
+        <h3 class="subtext"><a href="mailto:stevesajanjacobkallunkal04@gmail.com">stevesajanjacobkallunkal04@gmail.com</a></h3>
       </div>
       <img src="./assets/steveheroimg.png" alt="Steve Sajan Jacob" />
     </section>
@@ -69,24 +76,120 @@
         <dotlottie-player src="https://lottie.host/c718bcdd-368c-4b30-8a8e-d5b68dd5403c/7XfzvyjbcF.json" background="transparent" speed="1" style="width: 500px; height: 500px;" loop autoplay></dotlottie-player> -->
       </div>
     </section>
-    <section id="tech-stack">
+    <section id="tech-stack" class="grid-section">
       <h1 class="subtext">My Tech Stack</h1>
-      <div id="tech-stack-container">
-      <div id="languages_framewors">
-      <h2 class="subtext">Languages & Frameworks</h2>
-      <div id="lang_frame" class="tech-grid">
-        <!-- To be filled by Js -->
+      <div class="grid-container">
+        <div id="languages_framewors">
+          <h2 class="subtext">Languages & Frameworks</h2>
+          <div id="lang_frame" class="tech-grid grid">
+            <!-- To be filled by Js -->
+          </div>
+        </div>
+        <div id="platforms">
+          <h2 class="subtext">Platforms & Tools</h2>
+          <div id="platform_grid" class="tech-grid grid">
+            <!-- To be filled by Js -->
+          </div>
+        </div>
+        <div id="creative_tools">
+          <h2 class="subtext">Creative Tools</h2>
+          <div id="create_tools" class="tech-grid grid">
+            <!-- To be filled by Js -->
+          </div>
+        </div>
       </div>
-    </div>
-    <div id="creative_tools">
-      <h2 class="subtext">Creative Tools</h2>
-      <div id="create_tools" class="tech-grid">
-        <!-- To be filled by Js -->
+    </section>
+    <section id="gallery" class="grid-section">
+      <h1 class="subtext">Gallery</h1>
+      <div id="gallery-container">
+        <div id="personalities">
+          <div id="personalities_grid" class="gallery-grid grid">
+            <!-- To be filled by Js -->
+          </div>
+        </div>
+        <div id="media_gallery">
+          <h2 class="subtext">Media Gallery</h2>
+          <div id="media_grid" class="gallery-grid grid">
+            <div class="neon-eff media_element">
+              <iframe
+              src="https://www.youtube.com/embed/ycp5C5BjOQU?si=4qe2VRNNe8AWHgV1"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            </div>
+            <div class="neon-eff media_element">
+              <iframe
+              src="https://www.youtube.com/embed/uRYld1rJKjM?si=6PFQwRTt1nlUdrO7"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            </div>
+            <div class="neon-eff media_element">
+              <iframe
+              src="https://www.youtube.com/embed/GyxzPitqjCg?si=CQpMVE8YtGCLdEdB"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            </div>
+            <div class="neon-eff media_element">
+              <iframe
+              src="https://www.youtube.com/embed/HCstWiEdVLE?si=DRxA71bA1mAZE-2m"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            </div>
+            <div class="neon-eff media_element">
+              <video controls src="./gallery/pope/Asianet News Pope Francis.mp4"></video>
+            </div>
+          </div>
+        </div>
+        <div id="print_gallery">
+          <h2 class="subtext">Print Gallery</h2>
+          <div id="print_grid" class="gallery-grid grid">
+            <!-- To be filled by Js -->
+          </div>
+        </div>
+        <div id="certificate_gallery">
+          <h2 class="subtext">Certifications</h2>
+          <div id="certifcate_grid" class="gallery-grid grid certificate-gallery">
+            <!-- To be filled by Js -->
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
     </section>
   </body>
+  <dialog id="image_viewer_dialog" class="popups ">
+    <div class="image_viewer_container neon-eff">
+      <div class="image-viewer-header">
+        <h2 id="image_viewer_header_text"></h2>
+        <button class="popup-close-btn" onclick="close_popup(this)">
+          <div class="close">
+            <span class="material-symbols-rounded"> close </span>
+          </div>
+        </button>
+      </div>
+      <div class="image_viewer_image_container">
+        <img id="image_viewer_image"
+          src=""
+          alt=""
+        />
+        <h5 id="image_viewer_description_text">
+        </h5>
+      </div>
+    </div>
+  </dialog>
   <footer>
     <script src="script.js"></script>
   </footer>

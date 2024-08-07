@@ -94,3 +94,148 @@ const create_tools_det = [
 ]
 
 gridAppender(create_tools,create_tools_det);
+
+const platforms = [
+    {
+        img : "./assets/techlogos/GitHub.svg",
+        txt : "Github"
+    },
+    {
+        img : "./assets/techlogos/Cloudflare.svg",
+        txt : "CloudFlare"
+    },
+    {
+        img : "./assets/techlogos/Google Cloud.svg",
+        txt : "Google Cloud"
+    },
+    {
+        img : "./assets/techlogos/Jupyter.svg",
+        txt : "Jupyter"
+    },
+    {
+        img : "./assets/techlogos/Docker.svg",
+        txt : "Docker"
+    },
+    {
+        img : "./assets/techlogos/Visual Studio Code (VS Code).svg",
+        txt : "Visual Studio Code"
+    },
+    {
+        img : "./assets/techlogos/Firebase.svg",
+        txt : "Firebase"
+    },
+]
+
+gridAppender(platform_grid,platforms);
+
+// Gallery
+// Print
+const print_media = [
+    {
+        img : "./gallery/pope/times of india.jpeg",
+        txt : "Times of India News Steve's Interaction with Pope Francis"
+    },
+    {
+        img : "./gallery/pope/indian express.jpeg",
+        txt : "Indian Express News Steve's Interaction with Pope Francis"
+    },
+    {
+        img : "./gallery/media/print/i-app-dhanam-article.jpeg",
+        txt : "i-app Dhanam Article"
+    },
+    {
+        img : "./gallery/media/print/Indian-Express-article.jpeg",
+        txt : "i-app Indian Express"
+    },
+]
+
+gridAppender(print_grid,print_media);
+
+const personalities = [
+    {
+        img : "./gallery/personalities/shashi-tharoor.webp",
+        txt : "With Hon.MP Dr Shashi Tharoor"
+    },
+    {
+        img : "./gallery/personalities/steve-with-rajeev-chandrashekar.jpeg",
+        txt : "With Hon.Ex-Minister of State Rajeev Chandrashekar"
+    },
+    {
+        img : "./gallery/personalities/steve-with-Ambassador-T.P-Srinivasan.jpeg",
+        txt : "With Hon. Ex-Ambassador Dr.T.P Sreenivasan"
+    },
+    {
+        img : "./gallery/personalities/steve-with-royal-family.jpg",
+        txt : "With Royal Famiy of Trivandrum"
+    },
+    {
+        img : "./gallery/personalities/hybi-eden.webp",
+        txt : "With Hon.MP Hybi Eden"
+    },
+    {
+        img : "./gallery/personalities/pj-joseph.webp",
+        txt : "With Hon.Ex-Minister P.J Joseph"
+    },
+    {
+        img : "./gallery/personalities/Prashant-Kumar-Mishra.webp",
+        txt : "With Hon. Collector Prashant Kumar Mishra"
+    },
+    {
+        img : "./gallery/personalities/worldline.webp",
+        txt : "Strategic Alliance Partnership with ATOS Worldline"
+    },
+    {
+        img : "./gallery/personalities/atom.webp",
+        txt : "Strategic Alliance Partnership with ATOM"
+    },
+]
+
+gridAppender(personalities_grid,personalities);
+
+const certificates = [
+    {
+        img: "./gallery/certificates/Googles-digital-marketing-certificate-of-Steve.jpg",
+        txt: "Google Digital Marketing Expert"
+    },
+    {
+        img: "./gallery/certificates/Google Advanced Analytics Steve.jpg",
+        txt: "Google Advanced Analytics"
+    },
+    {
+        img: "./gallery/certificates/Steve-Sajan-Jacob-AWS-Solutions-Architect-Certificate.jpg",
+        txt: "AWS Solutions Architect"
+    },
+    {
+        img: "./gallery/certificates/Google Coursera Python Certificate -Steve.jpg",
+        txt: "Google Python Certified"
+    },
+    {
+        img: "./gallery/certificates/Steve-Information-System.jpg",
+        txt: "Information Systems"
+    },
+    {
+        img: "./gallery/certificates/Steve-Cyber-Piracy.jpg",
+        txt: "Cyber Piracy"
+    },
+    {
+        img: "./gallery/certificates/Steve-Cyber-Law.jpg",
+        txt: "Cyber Law"
+    },
+]
+
+gridAppender(certifcate_grid,certificates);
+
+const gallery_images =  document.querySelectorAll('.gallery-grid>div:not(.media_element)');
+gallery_images.forEach((image_ele)=>{
+    image_ele.addEventListener('click',(e)=>{
+        image_viewer_dialog.showModal();
+        body.classList.add('modal-open');
+        image_viewer_header_text.innerText = image_ele.querySelector('h5').innerText;
+        image_viewer_image.src = image_ele.querySelector('img').src;
+    })
+})
+
+function close_popup(e){
+    body.classList.remove('modal-open')
+    e.parentElement.parentElement.parentElement.close();
+ }
