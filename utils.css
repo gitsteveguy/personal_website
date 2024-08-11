@@ -22,12 +22,12 @@
 }
 #gallery{
 .neon-eff{
-    --gr-color-1: hsl(184, 94%, 43%);
-    --gr-color-2: hsl(204, 97%, 30%);
+    /* --gr-color-1: hsl(184, 94%, 43%);
+    --gr-color-2: hsl(204, 97%, 30%); */
 }
 .neon-eff:hover{
-    --gr-color-1: hsl(184, 94%, 80%);
-    --gr-color-2: hsl(204, 97%, 80%);
+    /* --gr-color-1: hsl(184, 94%, 80%);
+    --gr-color-2: hsl(204, 97%, 80%); */
 }
 }
 

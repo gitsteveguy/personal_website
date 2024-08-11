@@ -260,3 +260,48 @@ function close_popup(e){
     body.classList.remove('modal-open')
     e.parentElement.parentElement.parentElement.close();
  }
+
+//  Theme
+const root = document.querySelector(':root')
+var theme = window.localStorage.getItem('theme')
+if(theme!==null){
+root.style.setProperty('color-scheme', theme);
+themetoggler.innerText=theme+"_mode";
+if(theme==="dark"){
+body.classList.add('darkbg')
+}
+else{
+    body.classList.remove('darkbg') 
+}
+}
+
+
+ const toggletheme = ()=>{
+    console.log("test");
+    if(theme===null){
+        if(window.matchMedia('(prefers-color-scheme: light)').matches){
+            theme = "dark";
+            window.localStorage.setItem('theme','dark')
+            body.classList.add('darkbg')
+        }
+        else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+            theme = "light";
+            window.localStorage.setItem('theme','light')
+            body.classList.remove('darkbg') 
+        }
+    }
+    else if(theme!==null){
+        if(theme === "light"){
+            theme = "dark";
+            window.localStorage.setItem('theme','dark')
+            body.classList.add('darkbg')
+        }
+        else if(theme === "dark"){
+            theme = "light";
+            window.localStorage.setItem('theme','light')
+            body.classList.remove('darkbg') 
+        }
+    }
+    themetoggler.innerText=theme+"_mode";
+    root.style.setProperty('color-scheme', theme);
+ }

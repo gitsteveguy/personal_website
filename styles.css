@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root{
-    color-scheme: light dark;
+    color-scheme: dark light;
     --default-text-color : light-dark(black,white);
     --bg-color : light-dark(white,black);
     --primary-color : light-dark(#0505a0,deepskyblue);
     --subtext-color : light-dark(#525252,#999999);
     --shadow-color : light-dark(#808080c7,#3939395e);
     --glass-bg: light-dark(#47474765,hsla(0, 0%, 21%, 0.8));
+    --mgr-color-1: hsl(223, 98%, 25%);
+    --mgr-color-2: rgb(137, 2, 149);
     /* Gradient */
 }
 *{
@@ -21,6 +23,7 @@ html {
 
 body{
     background:var(--bg-color);
+    -webkit-font-smoothing: antialiased;
     display: flex;
     flex-direction: column;
     padding: 1rem;
@@ -29,6 +32,11 @@ body{
     width: 95%;
     margin: 0;
 }
+
+    body.darkbg{
+    --bg-color : linear-gradient(95deg, hsl(209, 90%, 8%), black 40%, hsl(0, 95%, 8%) 95%);
+    }
+
 h1{
     font-size: 3rem;
 }
@@ -37,6 +45,12 @@ h1{
 }
 .zoom:hover{
     scale: 1.25;
+}
+.gradient-text{
+    color: unset;
+    background: linear-gradient(95deg, #059DFF 15%, #6549D5 45%, #E33FA1 75%, #FB5343 100%) 98% / 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .glass{
     background: #ffffff5f;
@@ -64,6 +78,7 @@ header{
             justify-content: center;
             li{
                 list-style: none;
+                cursor: pointer;
             
                 a{
                     text-decoration: none;
@@ -90,7 +105,7 @@ section{
     }
 }
 .primary-text{
-    color: var(--primary-color);
+color: var(--primary-color);
 }
 .primary-btn{
     background-color: var(--primary-color);
