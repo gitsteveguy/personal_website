@@ -8,6 +8,12 @@ const gridAppender = async (parentElement,gridArray)=>{
        const txt  = document.createElement('h5');
        txt.innerText = gridDet.txt;
        grid.append(txt);
+       if(gridDet.link!=""){
+       grid.setAttribute("data-link",gridDet.link) 
+       }
+       if(gridDet.btnText!=""){
+        grid.setAttribute("data-btn-text",gridDet.btnText) 
+        }
        parentElement.append(grid)
 })
 }
@@ -147,6 +153,13 @@ const print_media = [
         img : "./gallery/media/print/Indian-Express-article.jpeg",
         txt : "i-app Indian Express"
     },
+    {
+        img : "./gallery/media/print/BigCartKeralaTheHindu.png",
+        txt : "BigCart Kerala on The Hindu",
+        link : "https://www.thehindu.com/news/national/kerala/bigcart-kerala-to-cover-more-districts/article32095583.ece",
+        btnText : "Link to Article"
+    },
+
 ]
 
 gridAppender(print_grid,print_media);
@@ -232,6 +245,14 @@ gallery_images.forEach((image_ele)=>{
         body.classList.add('modal-open');
         image_viewer_header_text.innerText = image_ele.querySelector('h5').innerText;
         image_viewer_image.src = image_ele.querySelector('img').src;
+        if(image_ele.dataset.link!="undefined"){
+            image_viewer_desc_btn.href = image_ele.dataset.link;
+            image_viewer_desc_btn.style="display:block;";
+            image_viewer_desc_btn.innerText=image_ele.dataset.btnText;
+        }
+        else{
+            image_viewer_desc_btn.style="display:none;";
+        }
     })
 })
 
