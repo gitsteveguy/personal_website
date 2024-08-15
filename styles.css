@@ -238,7 +238,7 @@ color: var(--primary-color);
     margin: auto;
     padding: auto;
     width: 80%;
-    height: 80%;
+    /* height: 80%; */
     border-radius: 1rem;
     padding: 1rem;
    border-radius: 36px;
@@ -254,7 +254,7 @@ color: var(--primary-color);
     border-radius: 36px;
     background: var(--glass-bg);
     padding: 1rem;
-    max-height: 95%;
+    /* max-height: 95%; */
     p{
         color: var(--secondary-color)!important;
         text-align: left;
@@ -270,7 +270,7 @@ color: var(--primary-color);
         object-fit: fill;
         width: 90%;
         text-align: center;
-        max-height: 60svh;
+        /* max-height: 60svh; */
         border-radius: 36px;
     }
 .popup-close-btn{

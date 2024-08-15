@@ -238,6 +238,27 @@ const certificates = [
 
 gridAppender(certifcate_grid,certificates);
 
+const sessions = [
+    {
+        img: "./gallery/sessions/Savinova Lecture.jpeg",
+        txt: "Road to Entrepreneurship"
+    },
+    {
+        img: "./gallery/sessions/Replit.jpeg",
+        txt: "Workshop on Online & AI Based IDEs"
+    },
+    {
+        img: "./gallery/sessions/Quantum-Computing.jpeg",
+        txt: "Talked on Quantumn Computing & Its Possibilities"
+    },
+    {
+        img: "./gallery/sessions/Business Conference.jpeg",
+        txt: "Session on Integrating AI in Banking Services at Banking Conclave"
+    },
+]
+
+gridAppender(sessions_grid,sessions);
+
 const gallery_images =  document.querySelectorAll('.gallery-grid>div:not(.media_element)');
 gallery_images.forEach((image_ele)=>{
     image_ele.addEventListener('click',(e)=>{
@@ -274,7 +295,9 @@ else{
     body.classList.remove('darkbg') 
 }
 }
-
+if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+    body.classList.add('darkbg')
+}
 
  const toggletheme = ()=>{
     console.log("test");
