@@ -8,8 +8,10 @@
   --subtext-color: light-dark(#525252, #999999);
   --shadow-color: light-dark(#808080c7, #3939395e);
   --glass-bg: light-dark(#47474765, hsla(0, 0%, 21%, 0.8));
+  --header-bg: light-dark(hsla(0, 0%, 100%, 0.614), hsla(0, 0%, 0%, 0.614));
   --mgr-color-1: hsl(223, 98%, 25%);
   --mgr-color-2: rgb(137, 2, 149);
+  --white: white;
   /* Gradient */
 }
 * {
@@ -18,19 +20,22 @@
 }
 html {
   scroll-behavior: smooth;
+  scroll-padding: 90px;
   display: flex;
   justify-content: center;
 }
 
 body {
+    background-size: 100% 100%;
+    background-attachment: fixed; 
   background: var(--bg-color);
+  background-repeat: no-repeat;
   -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: column;
   padding: 1rem;
   align-items: center;
   justify-content: center;
-  width: 95%;
   margin: 0;
 }
 
@@ -59,7 +64,7 @@ h1 {
       #059dff 15%,
       #6549d5 45%,
       #e33fa1 75%,
-      #fb5343 100%
+      #43fbe3 100%
     )
     98% / 200% 100%;
   -webkit-background-clip: text;
@@ -75,11 +80,16 @@ h1 {
   background: #98dbec26;
 }
 header {
+    z-index: 9999;
+    width: 100%;
+    height: fit-content;
+    position: fixed;
+    top: 0;
+    background: var(--header-bg);
   display: flex;
   gap: 1rem;
   justify-content: center;
-  padding: 1rem;
-  border-radius: 24px;
+  padding: 0.5rem 0.25rem;
   nav {
     display: flex;
     justify-content: center;
@@ -99,16 +109,43 @@ header {
           text-wrap: nowrap;
         }
         a:hover {
-          color: var(--primary-color);
+          color: var(--primary-color)!important;
         }
       }
     }
   }
 }
+.menu-subitem{
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: inherit;
+    .m-icon{
+        color: inherit;
+    }
+    /* .m-icon:hover{
+        color: var(--primary-color)!important;
+    } */
+    .menu-subtext{
+        font-size: small;
+        color: inherit;
+        font-weight: bold;
+    }
+    /* .menu-subtext:hover{
+        color: var(--primary-color);
+    } */
+}
+.menu-link.active{
+    color: var(--primary-color);
+}
+.m0{
+    margin: 0;
+}
 section {
   min-height: 100svh;
-  h1 {
+ h1 {
     text-align: center;
+
   }
   .subtext {
     text-align: center;
@@ -123,10 +160,13 @@ section {
 .primary-btn {
   background-color: var(--primary-color);
   color: white;
-  padding: 1rem;
+  padding: 0.25em 1em;
   border-radius: 24px;
   text-decoration: none;
   cursor: pointer;
+}
+.primary-btn.neon-eff{
+    background: none;
 }
 .subtext {
   color: #999999;
@@ -135,11 +175,27 @@ section {
     text-decoration: none;
   }
 }
+.white{
+    color: var(--white);
+}
 #hero {
   display: flex;
   justify-content: space-around;
   align-items: center;
   max-height: 85svh;
+  .hero-img{
+    height: 70svh;
+  }
+}
+.herobtns{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    a{
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
 }
 .darkbg .cg-icon{
     filter: invert(1);
@@ -343,7 +399,11 @@ body.modal-open {
   background: black;
   opacity: 0.75;
 }
-
+#hero-txt{
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
 @media screen and (max-width: 920px) {
   #m-video {
     width: 100%;
@@ -353,8 +413,16 @@ body.modal-open {
   }
   #hero {
     height: 80svh;
-    img {
-      max-height: 42svh;
+    #hero-txt{
+        h1{
+            font-size: xx-large;
+        }
+    }
+    img.hero-img {
+        position: relative;
+        margin-bottom: -7em;
+        z-index: 5;
+      max-height: 34svh;
     }
   }
   .gallery-grid {
@@ -374,6 +442,9 @@ body.modal-open {
   }
 }
 @media screen and (max-width: 680px) {
+    #hero-txt{
+
+    }
   header {
     nav {
       display: flex;
@@ -389,8 +460,11 @@ body.modal-open {
   }
   #hero {
     height: 70svh;
-    img {
-      max-height: 35svh;
+    img.hero-img {
+        position: relative;
+        max-height: 33svh;
+        margin-bottom: -11em;
+        z-index: 5;
     }
   }
   .tech-grid > div {
@@ -416,7 +490,27 @@ body.modal-open {
     }
   }
 }
+@media screen and (max-width: 530px){
+    .menu-subtext{
+        display: none;
+    }
+    #hero-txt{
+        h1{
+            font-size: x-large;
+        }
+    }
+}
 @media screen and (max-width: 350px) {
+    #hero{
+        justify-content: initial;
+        img.hero-img {
+            position: relative;
+            margin-bottom: 0;
+            margin-top: 3em;
+            z-index: 5;
+          max-height: 42svh;
+        }
+    }
   #hero-txt {
     h1 {
       font-size: 1.25rem;
@@ -427,6 +521,10 @@ body.modal-open {
     a {
       font-size: 0.8rem;
     }
+  }
+  .media_element {
+    min-width: 18rem;
+    padding: 0.3rem !important;
   }
 }
 @media (prefers-color-scheme: light) {

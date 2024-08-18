@@ -20,10 +20,44 @@
   <header>
     <nav>
       <menu>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about-me">About Me</a></li>
-        <li><a href="#tech-stack">My Tech Stack</a></li>
-        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#hero" class="menu-link"><div class="menu-subitem"><span
+          class="material-symbols-rounded subtext m-icon"
+          title="Home"
+        >
+          home
+        </span>
+        <span class="menu-subtext">Home</span>
+      </div></a></li>
+        <li><a href="#about-me" class="menu-link">
+          <div class="menu-subitem"><span
+            class="material-symbols-rounded subtext m-icon"
+            title="Home"
+          >
+            person
+          </span>
+          <span class="menu-subtext">About Me</span>
+        </div>
+         </a></li>
+        <li><a href="#tech-stack" class="menu-link">
+          <div class="menu-subitem"><span
+            class="material-symbols-rounded subtext m-icon"
+            title="Home"
+          >
+            code
+          </span>
+          <span class="menu-subtext">My Tech Stack</span>
+        </div>
+      </a></li>
+        <li><a href="#gallery" class="menu-link">
+          <div class="menu-subitem"><span
+            class="material-symbols-rounded subtext m-icon"
+            title="Home"
+          >
+            photo_library
+          </span>
+          <span class="menu-subtext">Gallery</span>
+        </div>
+        </a></li>
         <li>
           <span
             id="themetoggler"
@@ -40,26 +74,25 @@
   <body id="body">
     <section id="hero" class="img-des">
       <div id="hero-txt">
-        <h1>
-          Hi, I am
+        <h1 class="m0">
+          <span class="subtext">Hi, I am </span><br>
           <span class="primary-text gradient-text">Steve Sajan Jacob</span>
         </h1>
-        <h2 class="subtext">
+        <h2 class="subtext m0">
           I am a <span class="gradient-text">Full Stack Developer</span>
         </h2>
-        <h3 class="subtext gradient-text">
-          <a href="tel:+916238936248">+91 6238 936 248</a>
-        </h3>
-        <h3 class="subtext gradient-text">
-          <a href="mailto:steve@stevesajanjacob.com"
-            >steve@stevesajanjacob.com</a
-          >
-        </h3>
-        <h3 class="subtext gradient-text">
-          <a href="mailto:stevesajanjacobkallunkal04@gmail.com"
-            >stevesajanjacobkallunkal04@gmail.com</a
-          >
-        </h3>
+        <div class="herobtns">
+        <a href="tel:+916238936248" class="primary-btn neon-eff"><span
+          class="material-symbols-rounded white"
+        >
+          call
+        </span>Call Me</a>
+        <a href="mailto:steve@stevesajanjacob.com" class="primary-btn neon-eff"><span
+          class="material-symbols-rounded white"
+        >
+          mail
+        </span>Mail Me</a>
+      </div>
         <div class="socials-icons">
           <a href="https://github.com/gitsteveguy"><img src="./assets/techlogos/GitHub.svg" class="cg-icon" alt="Github"></a>
           <a href="https://www.instagram.com/stevesajanjacob/"><img src="./assets/socials/instagram.svg"  alt="Instagram"></a>
@@ -68,7 +101,7 @@
           <a href="https://www.linkedin.com/in/steve-sajan-jacob-a68764245/"><img src="./assets/socials/linkedin.svg"  alt="LinkedIn"></a>
         </div>
       </div>
-      <img src="./assets/steveheroimg.png" alt="Steve Sajan Jacob" />
+      <img src="./assets/steveheroimg.png" class="hero-img" alt="Steve Sajan Jacob" />
     </section>
     <section id="about-me">
       <h1 class="subtext">About Me</h1>

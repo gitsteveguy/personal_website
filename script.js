@@ -285,6 +285,16 @@ function close_popup(e){
 //  Theme
 const root = document.querySelector(':root')
 var theme = window.localStorage.getItem('theme')
+if(theme===null){
+    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+    window.localStorage.setItem('theme','dark')
+    theme='dark'
+    }
+    else{
+        window.localStorage.setItem('theme','light')
+    theme='light'
+    }
+}
 if(theme!==null){
 root.style.setProperty('color-scheme', theme);
 themetoggler.innerText=theme+"_mode";
@@ -292,12 +302,12 @@ if(theme==="dark"){
 body.classList.add('darkbg')
 }
 else{
+    console.log('light');
+    
     body.classList.remove('darkbg') 
 }
 }
-if(window.matchMedia('(prefers-color-scheme: dark)').matches){
-    body.classList.add('darkbg')
-}
+
 
  const toggletheme = ()=>{
     console.log("test");
@@ -327,4 +337,27 @@ if(window.matchMedia('(prefers-color-scheme: dark)').matches){
     }
     themetoggler.innerText=theme+"_mode";
     root.style.setProperty('color-scheme', theme);
+ }
+
+ const sections = document.querySelectorAll('section')
+ const links = document.querySelectorAll(".menu-link")
+ window.onscroll = ()=>{
+    var current = 'home';
+    sections.forEach((section)=>{
+        const sectionTop = section.offsetTop;
+        if(pageYOffset >= sectionTop-200){
+            current = section.getAttribute('id')
+        }
+
+    })
+    links.forEach((link)=>{
+        link.classList.remove("active");
+        if(link.href.includes(current)){
+            link.classList.add("active")
+        }
+        else{
+            link.classList.remove("active")
+        }
+    })
+
  }
