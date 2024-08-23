@@ -139,7 +139,7 @@ gridAppender(platform_grid,platforms);
 const print_media = [
     {
         img : "./gallery/media/magazines/business_insights/business_magazine_preview.jpg",
-        txt : "Business Insights Article",
+        txt : "Business Insights Magazine Article",
         link : "./gallery/media/magazines/business_insights/BUSINESS INSIGHT - FEB 2023 - ISSUE 04-36-37.pdf",
         btnText : "View PDF"
     },
