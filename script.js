@@ -247,7 +247,7 @@ gridAppender(certifcate_grid,certificates);
 const sessions = [
     {
         img: "./gallery/sessions/Savinova Lecture.jpeg",
-        txt: "Road to Entrepreneurship"
+        txt: "Talk on Roadmap to Young Technopreneur"
     },
     {
         img: "./gallery/sessions/Replit.jpeg",
@@ -255,11 +255,11 @@ const sessions = [
     },
     {
         img: "./gallery/sessions/Quantum-Computing.jpeg",
-        txt: "Talk Session on Quantum Computing for Computer Society of India"
+        txt: "Talk on Quantum Computing for Computer Society of India"
     },
     {
         img: "./gallery/sessions/Business Conference.jpeg",
-        txt: "Session on Integrating AI in Banking Services at Banking Conclave"
+        txt: "Talk on AI Integration in Banking Services at Banking Conclave"
     },
 ]
 
