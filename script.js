@@ -255,7 +255,7 @@ const sessions = [
     },
     {
         img: "./gallery/sessions/Quantum-Computing.jpeg",
-        txt: "Talked on Quantumn Computing & Its Possibilities"
+        txt: "Talk Session on Quantum Computing for Computer Society of India"
     },
     {
         img: "./gallery/sessions/Business Conference.jpeg",

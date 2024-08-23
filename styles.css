@@ -417,6 +417,8 @@ gap: 1rem;
   #hero {
     height: 80svh;
     #hero-txt{
+      margin-top: 2rem;
+      gap: 1.5rem;
         h1{
             font-size: xx-large;
         }
