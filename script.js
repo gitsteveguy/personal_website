@@ -138,6 +138,12 @@ gridAppender(platform_grid,platforms);
 // Print
 const print_media = [
     {
+        img : "./gallery/media/magazines/business_insights/business_magazine_preview.jpg",
+        txt : "Business Insights Article",
+        link : "./gallery/media/magazines/business_insights/BUSINESS INSIGHT - FEB 2023 - ISSUE 04-36-37.pdf",
+        btnText : "View PDF"
+    },
+    {
         img : "./gallery/pope/times of india.jpeg",
         txt : "Times of India News Steve's Interaction with Pope Francis"
     },
@@ -285,6 +291,7 @@ function close_popup(e){
 //  Theme
 const root = document.querySelector(':root')
 var theme = window.localStorage.getItem('theme')
+
 
 
 if(theme===null){
