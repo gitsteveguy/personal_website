@@ -12,11 +12,11 @@
     inherits: false;
     } 
 
-.neon-eff{
+.neon-eff,.twitter-tweet{
     position: relative;
     transition: all 300ms ease-in;
 }
-.neon-eff:hover{
+.neon-eff:hover ,.twitter-tweet:hover{
     --gr-color-1: hsl(240, 100%, 80%);
     --gr-color-2: hsl(295, 97%, 80%);
 }
@@ -42,7 +42,7 @@
     from{ --gradient-angle: 0deg;}
     to{ --gradient-angle: 360deg;}
 }
-.neon-eff:after,.neon-eff::before{
+.neon-eff:after,.neon-eff::before,.twitter-tweet::before,.twitter-tweet::after{
     z-index: -1;
     content: "";
     position: absolute;

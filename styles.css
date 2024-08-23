@@ -42,9 +42,9 @@ body {
 body.darkbg {
   --bg-color: linear-gradient(
     95deg,
-    hsl(209, 90%, 8%),
+    #021527,
     black 40%,
-    hsl(0, 95%, 8%) 95%
+    #280101 95%
   );
 }
 
@@ -314,6 +314,9 @@ section {
       border-radius: 24px;
     }
   }
+}
+.twitter-tweet{
+  width: fit-content!important;
 }
 .media_element {
   min-width: 20rem;

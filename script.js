@@ -285,6 +285,8 @@ function close_popup(e){
 //  Theme
 const root = document.querySelector(':root')
 var theme = window.localStorage.getItem('theme')
+
+
 if(theme===null){
     if(window.matchMedia('(prefers-color-scheme: dark)').matches){
     window.localStorage.setItem('theme','dark')
@@ -302,15 +304,12 @@ if(theme==="dark"){
 body.classList.add('darkbg')
 }
 else{
-    console.log('light');
-    
     body.classList.remove('darkbg') 
 }
 }
 
 
  const toggletheme = ()=>{
-    console.log("test");
     if(theme===null){
         if(window.matchMedia('(prefers-color-scheme: light)').matches){
             theme = "dark";
@@ -338,6 +337,8 @@ else{
     themetoggler.innerText=theme+"_mode";
     root.style.setProperty('color-scheme', theme);
  }
+
+
 
  const sections = document.querySelectorAll('section')
  const links = document.querySelectorAll(".menu-link")
