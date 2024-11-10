@@ -1,22 +1,201 @@
-const gridAppender = async (parentElement, gridArray) => {
-  gridArray.forEach((gridDet) => {
-    const grid = document.createElement("div");
-    grid.setAttribute("class", "neon-eff");
-    const image = document.createElement("img");
-    image.src = gridDet.img;
-    grid.append(image);
-    const txt = document.createElement("h5");
-    txt.innerText = gridDet.txt;
-    grid.append(txt);
-    if (gridDet.link != "") {
-      grid.setAttribute("data-link", gridDet.link);
-    }
-    if (gridDet.btnText != "") {
-      grid.setAttribute("data-btn-text", gridDet.btnText);
-    }
-    parentElement.append(grid);
-  });
+const gridAppender = async (parentElement, gridArray, type = "gallery") => {
+  if (type == "gallery") {
+    gridArray.forEach((gridDet) => {
+      const grid = document.createElement("div");
+      grid.setAttribute("class", "");
+      const image = document.createElement("img");
+      image.src = gridDet.img;
+      grid.append(image);
+      const txt = document.createElement("h5");
+      txt.innerText = gridDet.txt;
+      grid.append(txt);
+      if (gridDet.link != "") {
+        grid.setAttribute("data-link", gridDet.link);
+      }
+      if (gridDet.btnText != "") {
+        grid.setAttribute("data-btn-text", gridDet.btnText);
+      }
+      parentElement.append(grid);
+    });
+  } else if (type == "portfolio") {
+    gridArray.forEach((gridDet) => {
+      const portfolio_ele = document.createElement("div");
+      portfolio_ele.setAttribute("class", "portfolio_element");
+
+      const portfolio_image = document.createElement("img");
+      portfolio_image.src = gridDet.image;
+      portfolio_ele.append(portfolio_image);
+
+      const title = document.createElement("h2");
+      title.innerText = gridDet.name;
+      portfolio_ele.append(title);
+
+      const desc = document.createElement("p");
+      desc.setAttribute("class", "subtext");
+      desc.innerText = gridDet.desc;
+      portfolio_ele.append(desc);
+
+      const hasWeb = Object.hasOwn(gridDet, "website");
+      const hasPlayStore = Object.hasOwn(gridDet, "playstore");
+      const hasAppStore = Object.hasOwn(gridDet, "appstore");
+
+      if (hasWeb || hasPlayStore || hasAppStore) {
+        const btn_container = document.createElement("div");
+        btn_container.setAttribute("class", "portfolio-btns");
+
+        if (hasPlayStore) {
+          const playstore_btn = document.createElement("a");
+          playstore_btn.href = gridDet.playstore;
+          playstore_btn.target = "_blank";
+          const playstore_img = document.createElement("img");
+          playstore_img.src = "./assets/techlogos/Google Play.svg";
+          playstore_btn.append(playstore_img);
+          btn_container.append(playstore_btn);
+        }
+
+        if (hasWeb) {
+          const web_btn = document.createElement("a");
+          web_btn.href = gridDet.website;
+          web_btn.setAttribute("class", "primary-btn neon-eff");
+          const icon = document.createElement("span");
+          icon.setAttribute("class", "material-symbols-rounded white");
+          icon.innerText = "link";
+          web_btn.append(icon);
+          const btn_text = document.createElement("span");
+          btn_text.setAttribute("class", "portfolio_weblink_text");
+          btn_text.innerText = "View";
+          web_btn.append(btn_text);
+          btn_container.append(web_btn);
+        }
+
+        if (hasAppStore) {
+          const appstore_btn = document.createElement("a");
+          appstore_btn.href = gridDet.appstore;
+          appstore_btn.target = "_blank";
+          const appstore_img = document.createElement("img");
+          appstore_img.src = "./assets/techlogos/App Store.svg";
+          appstore_btn.append(appstore_img);
+          btn_container.append(appstore_btn);
+        }
+        portfolio_ele.append(btn_container);
+      }
+      parentElement.append(portfolio_ele);
+    });
+  }
 };
+
+const portfolio = [
+  {
+    name: "BigCart Kerala",
+    image: "./gallery/portfolio/bigcartkerala-portfolio.png",
+    desc: "Hyper Local e-Commerce Platform.",
+    website: "https://portfolio.stevesajanjacob.com/bigcartkerala",
+  },
+  {
+    name: "Kerala CSC VLE",
+    image: "./gallery/portfolio/Kerala-CSC-Portfolio-image.png",
+    desc: "Member Management & Services Platform.",
+    website: "https://portfolio.stevesajanjacob.com/keralacsc",
+    playstore:
+      "https://play.google.com/store/apps/details?id=com.keralacsc.twa",
+  },
+  {
+    name: "UPM Technical Services",
+    image: "./gallery/portfolio/upmtechservices-portfolio.png",
+    desc: "Handyman Services Platform.",
+    website: "https://portfolio.stevesajanjacob.com/upmservices/",
+    playstore:
+      "https://play.google.com/store/apps/details?id=com.upmtechservices.twa",
+    appstore: "https://apps.apple.com/us/app/upm-tech-services/id6670204211",
+  },
+  {
+    name: "e-Sahai",
+    image: "./gallery/portfolio/esahai_portfolio.png",
+    desc: "Handyman Services Platform.",
+    website: "https://portfolio.stevesajanjacob.com/esahai",
+  },
+  {
+    name: "BigCart Abu Dhabi",
+    image: "./gallery/portfolio/Bigcart-Abudhabi-portfolio.png",
+    desc: "Hyper Local e-Commerce Platform.",
+    website: "https://portfolio.stevesajanjacob.com/bigcartabudhabi/",
+    playstore:
+      "https://play.google.com/store/apps/details?id=com.bigcartabudhabi.twa",
+  },
+  {
+    name: "African Digital Business Summit",
+    image: "./gallery/portfolio/ADBS-Portfolio-image.png",
+    desc: "Event Management Platform.",
+    website: "https://portfolio.stevesajanjacob.com/adbs/",
+  },
+  {
+    name: "Ezimart Qatar",
+    image: "./gallery/portfolio/ezimartonline-portfolio.png",
+    desc: "Multivendor e-Commerce Platform.",
+    website: "https://portfolio.stevesajanjacob.com/ezimart/",
+  },
+  {
+    name: "Fishbar",
+    image: "./gallery/portfolio/fishbar-portfolio.png",
+    desc: "Delivery Tech e-Commerce Platform.",
+    website: "https://portfolio.stevesajanjacob.com/fishbar/",
+    playstore: "https://play.google.com/store/apps/details?id=in.fishbar.twa",
+    appstore: "https://apps.apple.com/us/app/fish-bar/id1618020502",
+  },
+  {
+    name: "Matsyafed Freshmeen",
+    image: "./gallery/portfolio/matsyafed-freshmeen.png",
+    desc: "Delivery Tech e-Commerce Platform.",
+    website: "https://matsyafedfreshmeen.com/",
+  },
+  {
+    name: "Venad Farms",
+    image: "./gallery/portfolio/venad-farms-portfolio.png",
+    desc: "Delivery Tech e-Commerce Platform.",
+    website: "https://portfolio.stevesajanjacob.com/venadfarms/",
+    playstore:
+      "https://play.google.com/store/apps/details?id=in.venadfarms.twa",
+  },
+  {
+    name: "Pinkshopz",
+    image: "./gallery/portfolio/pinkshopz-portfolio.png",
+    desc: "B2B2C Platform.",
+    website: "https://portfolio.stevesajanjacob.com/pinkshopz/",
+  },
+  {
+    name: "IronBoy",
+    image: "./gallery/portfolio/ironboy-portfolio.png",
+    desc: "Services Delivery Platform.",
+    website: "https://portfolio.stevesajanjacob.com/ironboy/",
+    playstore: "https://play.google.com/store/apps/details?id=in.ironboy.twa",
+  },
+  {
+    name: "The Snake Park",
+    image: "./gallery/portfolio/snakepark-portfolio.png",
+    desc: "Information & Services Platform.",
+    website: "https://portfolio.stevesajanjacob.com/snakepark/",
+  },
+  {
+    name: "Hug a Mug Cafe - Tanzania",
+    image: "./gallery/portfolio/hugamug-portfolio.png",
+    desc: "Resto-Bar Services & Booking Platform",
+    website: "https://hugamug.tz/",
+  },
+  {
+    name: "Shinshiva Ayurveda",
+    image: "./gallery/portfolio/shinshiva-portfolio.png",
+    desc: "Resort Management Platform",
+    website: "https://portfolio.stevesajanjacob.com/shinshiva/",
+  },
+  {
+    name: "Ezi Group Ltd",
+    image: "./gallery/portfolio/ezigroupltd-portfolio.png",
+    desc: "Business Services Platform",
+    website: "https://ezigroupltd.co.tz/",
+  },
+];
+
+gridAppender(portfolio_grid, portfolio, "portfolio");
 
 const lang_frames = [
   {
@@ -272,7 +451,7 @@ const sessions = [
 gridAppender(sessions_grid, sessions);
 
 const gallery_images = document.querySelectorAll(
-  ".gallery-grid>div:not(.media_element)"
+  ".gallery-grid>div:not(.media_element,.portfolio_element)"
 );
 gallery_images.forEach((image_ele) => {
   image_ele.addEventListener("click", (e) => {
