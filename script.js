@@ -5,6 +5,9 @@ const gridAppender = async (parentElement, gridArray, type = "gallery") => {
       grid.setAttribute("class", "");
       const image = document.createElement("img");
       image.src = gridDet.img;
+      if (Object.hasOwn(gridDet, "darkLogo")) {
+        image.setAttribute("class", "cg-icon");
+      }
       grid.append(image);
       const txt = document.createElement("h5");
       txt.innerText = gridDet.txt;
@@ -188,6 +191,12 @@ const portfolio = [
     website: "https://portfolio.stevesajanjacob.com/shinshiva/",
   },
   {
+    name: "Kavitha Family Salon",
+    image: "./gallery/portfolio/kavitha-family-salon-portfolio.png",
+    desc: "Information & Services Platform",
+    website: "https://kavithasfamilysalon.com/",
+  },
+  {
     name: "Ezi Group Ltd",
     image: "./gallery/portfolio/ezigroupltd-portfolio.png",
     desc: "Business Services Platform",
@@ -283,6 +292,7 @@ const platforms = [
   {
     img: "./assets/techlogos/GitHub.svg",
     txt: "Github",
+    darkLogo: "true",
   },
   {
     img: "./assets/techlogos/Cloudflare.svg",
