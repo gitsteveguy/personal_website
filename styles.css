@@ -376,6 +376,29 @@ section {
   }
 }
 
+#whatsapp-chat {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  img {
+    width: 5rem;
+    height: 5rem;
+    animation: scaleupanddown infinite 1800ms linear;
+  }
+}
+
+@keyframes scaleupanddown {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.25;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
 /* Image Viewer */
 /* Popups */
 .popups {
