@@ -381,8 +381,8 @@ section {
   bottom: 2rem;
   right: 2rem;
   img {
-    width: 4rem;
-    height: 4rem;
+    width: 10vw;
+    max-width: 5rem;
     animation: scaleupanddown infinite 1800ms linear;
   }
 }
@@ -559,7 +559,7 @@ body.modal-open {
       font-size: small;
       max-width: 6rem;
       img {
-        width: 6rem;
+        width: 8rem;
       }
     }
   }
@@ -569,13 +569,15 @@ body.modal-open {
     }
   }
 }
-@media screen and (max-width: 530px) {
+
+@media screen and (max-width: 680px) {
   .menu-subtext {
     display: none;
   }
   nav {
     padding: 0 0.25rem;
   }
+
   #hero-txt {
     h1 {
       font-size: x-large;
@@ -611,6 +613,11 @@ body.modal-open {
   .portfolio_element {
     min-width: 18rem;
     padding: 0.3rem !important;
+  }
+}
+@media screen and (max-width: 375px) {
+  menu {
+    gap: 1.25rem !important;
   }
 }
 
