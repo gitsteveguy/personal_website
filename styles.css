@@ -381,8 +381,8 @@ section {
   bottom: 2rem;
   right: 2rem;
   img {
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     animation: scaleupanddown infinite 1800ms linear;
   }
 }
@@ -572,6 +572,9 @@ body.modal-open {
 @media screen and (max-width: 530px) {
   .menu-subtext {
     display: none;
+  }
+  nav {
+    padding: 0 0.25rem;
   }
   #hero-txt {
     h1 {
