@@ -400,12 +400,24 @@ gridAppender(personalities_grid, personalities);
 
 const certificates = [
   {
+    img: "./gallery/certificates/IBM Generative AI Applications.jpg",
+    txt: "IBM Certified in Generative AI: Applications",
+  },
+  {
+    img: "./gallery/certificates/IBM Generative AI Prompt Engineering Basics.jpg",
+    txt: "IBM Certified in Generative AI: Prompt Engineering Basics",
+  },
+  {
     img: "./gallery/certificates/IBM Intro to AI.jpg",
     txt: "IBM Certified in Introduction to Artificial Intelligence",
   },
   {
     img: "./gallery/certificates/IBM Intro to SE .jpg",
     txt: "IBM Certified in Introduction to Software Engineering",
+  },
+  {
+    img: "./gallery/certificates/IBM - HTML CSS & Javascript.jpg",
+    txt: "IBM Certified in Introduction to HTML, CSS & JavaScript",
   },
   {
     img: "./gallery/certificates/Googles-digital-marketing-certificate-of-Steve.jpg",
