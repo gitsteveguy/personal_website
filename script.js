@@ -366,15 +366,15 @@ const personalities = [
     txt: "With Hon.MP Dr Shashi Tharoor",
   },
   {
-    img: "./gallery/personalities/steve-with-rajeev-chandrashekar.jpeg",
+    img: "./gallery/personalities/steve-with-rajeev-chandrashekar.webp",
     txt: "With Hon.Ex-Minister of State Rajeev Chandrashekar",
   },
   {
-    img: "./gallery/personalities/steve-with-Ambassador-T.P-Srinivasan.jpeg",
+    img: "./gallery/personalities/steve-with-Ambassador-T.P-Srinivasan.webp",
     txt: "With Hon. Ex-Ambassador Dr.T.P Sreenivasan",
   },
   {
-    img: "./gallery/personalities/steve-with-royal-family.jpg",
+    img: "./gallery/personalities/steve-with-royal-family.webp",
     txt: "With Royal Famiy of Trivandrum",
   },
   {
@@ -456,19 +456,19 @@ gridAppender(certifcate_grid, certificates);
 
 const sessions = [
   {
-    img: "./gallery/sessions/Savinova Lecture.jpeg",
+    img: "./gallery/sessions/Savinova Lecture.webp",
     txt: "Talk on Roadmap to Young Technopreneur",
   },
   {
-    img: "./gallery/sessions/Replit.jpeg",
+    img: "./gallery/sessions/Replit.webp",
     txt: "Workshop on Online & AI Based IDEs",
   },
   {
-    img: "./gallery/sessions/Quantum-Computing.jpeg",
+    img: "./gallery/sessions/Quantum-Computing.webp",
     txt: "Talk on Quantum Computing for Computer Society of India",
   },
   {
-    img: "./gallery/sessions/Business Conference.jpeg",
+    img: "./gallery/sessions/Business Conference.webp",
     txt: "Talk on AI Integration in Banking Services at Banking Conclave",
   },
 ];
