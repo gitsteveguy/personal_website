@@ -15,6 +15,9 @@ const gridAppender = async (parentElement, gridArray, type = "gallery") => {
       if (gridDet.link != "") {
         grid.setAttribute("data-link", gridDet.link);
       }
+      if (gridDet.highres != "") {
+        grid.setAttribute("data-highres", gridDet.highres);
+      }
       if (gridDet.btnText != "") {
         grid.setAttribute("data-btn-text", gridDet.btnText);
       }
@@ -90,13 +93,13 @@ const gridAppender = async (parentElement, gridArray, type = "gallery") => {
 const portfolio = [
   {
     name: "BigCart Kerala",
-    image: "./gallery/portfolio/bigcartkerala-portfolio.png",
+    image: "./gallery/portfolio/bigcartkerala-portfolio.webp",
     desc: "Hyper Local e-Commerce Platform.",
     website: "https://portfolio.stevesajanjacob.com/bigcartkerala",
   },
   {
     name: "Kerala CSC VLE",
-    image: "./gallery/portfolio/Kerala-CSC-Portfolio-image.png",
+    image: "./gallery/portfolio/Kerala-CSC-Portfolio-image.webp",
     desc: "Member Management & Services Platform.",
     website: "https://portfolio.stevesajanjacob.com/keralacsc",
     playstore:
@@ -104,7 +107,7 @@ const portfolio = [
   },
   {
     name: "UPM Technical Services",
-    image: "./gallery/portfolio/upmtechservices-portfolio.png",
+    image: "./gallery/portfolio/upmtechservices-portfolio.webp",
     desc: "Handyman Services Platform.",
     website: "https://portfolio.stevesajanjacob.com/upmservices/",
     playstore:
@@ -113,13 +116,13 @@ const portfolio = [
   },
   {
     name: "e-Sahai",
-    image: "./gallery/portfolio/esahai_portfolio.png",
+    image: "./gallery/portfolio/esahai_portfolio.webp",
     desc: "Handyman Services Platform.",
     website: "https://portfolio.stevesajanjacob.com/esahai",
   },
   {
     name: "BigCart Abu Dhabi",
-    image: "./gallery/portfolio/Bigcart-Abudhabi-portfolio.png",
+    image: "./gallery/portfolio/Bigcart-Abudhabi-portfolio.webp",
     desc: "Hyper Local e-Commerce Platform.",
     website: "https://portfolio.stevesajanjacob.com/bigcartabudhabi/",
     playstore:
@@ -127,19 +130,19 @@ const portfolio = [
   },
   {
     name: "African Digital Business Summit",
-    image: "./gallery/portfolio/ADBS-Portfolio-image.png",
+    image: "./gallery/portfolio/ADBS-Portfolio-image.webp",
     desc: "Event Management Platform.",
     website: "https://portfolio.stevesajanjacob.com/adbs/",
   },
   {
     name: "Ezimart Qatar",
-    image: "./gallery/portfolio/ezimartonline-portfolio.png",
+    image: "./gallery/portfolio/ezimartonline-portfolio.webp",
     desc: "Multivendor e-Commerce Platform.",
     website: "https://portfolio.stevesajanjacob.com/ezimart/",
   },
   {
     name: "Fishbar",
-    image: "./gallery/portfolio/fishbar-portfolio.png",
+    image: "./gallery/portfolio/fishbar-portfolio.webp",
     desc: "Delivery Tech e-Commerce Platform.",
     website: "https://portfolio.stevesajanjacob.com/fishbar/",
     playstore: "https://play.google.com/store/apps/details?id=in.fishbar.twa",
@@ -147,13 +150,13 @@ const portfolio = [
   },
   {
     name: "Matsyafed Freshmeen",
-    image: "./gallery/portfolio/matsyafed-freshmeen.png",
+    image: "./gallery/portfolio/matsyafed-freshmeen.webp",
     desc: "Delivery Tech e-Commerce Platform.",
     website: "https://matsyafedfreshmeen.com/",
   },
   {
     name: "Venad Farms",
-    image: "./gallery/portfolio/venad-farms-portfolio.png",
+    image: "./gallery/portfolio/venad-farms-portfolio.webp",
     desc: "Delivery Tech e-Commerce Platform.",
     website: "https://portfolio.stevesajanjacob.com/venadfarms/",
     playstore:
@@ -161,44 +164,44 @@ const portfolio = [
   },
   {
     name: "Pinkshopz",
-    image: "./gallery/portfolio/pinkshopz-portfolio.png",
+    image: "./gallery/portfolio/pinkshopz-portfolio.webp",
     desc: "B2B2C Platform.",
     website: "https://portfolio.stevesajanjacob.com/pinkshopz/",
   },
   {
     name: "IronBoy",
-    image: "./gallery/portfolio/ironboy-portfolio.png",
+    image: "./gallery/portfolio/ironboy-portfolio.webp",
     desc: "Services Delivery Platform.",
     website: "https://portfolio.stevesajanjacob.com/ironboy/",
     playstore: "https://play.google.com/store/apps/details?id=in.ironboy.twa",
   },
   {
     name: "The Snake Park",
-    image: "./gallery/portfolio/snakepark-portfolio.png",
+    image: "./gallery/portfolio/snakepark-portfolio.webp",
     desc: "Information & Services Platform.",
     website: "https://portfolio.stevesajanjacob.com/snakepark/",
   },
   {
     name: "Hug a Mug Cafe - Tanzania",
-    image: "./gallery/portfolio/hugamug-portfolio.png",
+    image: "./gallery/portfolio/hugamug-portfolio.webp",
     desc: "Resto-Bar Services & Booking Platform",
     website: "https://hugamug.tz/",
   },
   {
     name: "Shinshiva Ayurveda",
-    image: "./gallery/portfolio/shinshiva-portfolio.png",
+    image: "./gallery/portfolio/shinshiva-portfolio.webp",
     desc: "Resort Management Platform",
     website: "https://portfolio.stevesajanjacob.com/shinshiva/",
   },
   {
     name: "Kavitha Family Salon",
-    image: "./gallery/portfolio/kavitha-family-salon-portfolio.png",
+    image: "./gallery/portfolio/kavitha-family-salon-portfolio.webp",
     desc: "Information & Services Platform",
     website: "https://kavithasfamilysalon.com/",
   },
   {
     name: "Ezi Group Ltd",
-    image: "./gallery/portfolio/ezigroupltd-portfolio.png",
+    image: "./gallery/portfolio/ezigroupltd-portfolio.webp",
     desc: "Business Services Platform",
     website: "https://ezigroupltd.co.tz/",
   },
@@ -400,51 +403,51 @@ gridAppender(personalities_grid, personalities);
 
 const certificates = [
   {
-    img: "./gallery/certificates/IBM Generative AI Applications.jpg",
+    img: "./gallery/certificates/IBM Generative AI Applications.webp",
     txt: "IBM Certified in Generative AI: Applications",
   },
   {
-    img: "./gallery/certificates/IBM Generative AI Prompt Engineering Basics.jpg",
+    img: "./gallery/certificates/IBM Generative AI Prompt Engineering Basics.webp",
     txt: "IBM Certified in Generative AI: Prompt Engineering Basics",
   },
   {
-    img: "./gallery/certificates/IBM Intro to AI.jpg",
+    img: "./gallery/certificates/IBM Intro to AI.webp",
     txt: "IBM Certified in Introduction to Artificial Intelligence",
   },
   {
-    img: "./gallery/certificates/IBM Intro to SE .jpg",
+    img: "./gallery/certificates/IBM Intro to SE .webp",
     txt: "IBM Certified in Introduction to Software Engineering",
   },
   {
-    img: "./gallery/certificates/IBM - HTML CSS & Javascript.jpg",
+    img: "./gallery/certificates/IBM - HTML CSS & Javascript.webp",
     txt: "IBM Certified in Introduction to HTML, CSS & JavaScript",
   },
   {
-    img: "./gallery/certificates/Googles-digital-marketing-certificate-of-Steve.jpg",
+    img: "./gallery/certificates/Googles-digital-marketing-certificate-of-Steve.webp",
     txt: "Google Digital Marketing Expert",
   },
   {
-    img: "./gallery/certificates/Google Advanced Analytics Steve.jpg",
+    img: "./gallery/certificates/Google Advanced Analytics Steve.webp",
     txt: "Google Advanced Analytics",
   },
   {
-    img: "./gallery/certificates/Steve-Sajan-Jacob-AWS-Solutions-Architect-Certificate.jpg",
+    img: "./gallery/certificates/Steve-Sajan-Jacob-AWS-Solutions-Architect-Certificate.webp",
     txt: "AWS Solutions Architect",
   },
   {
-    img: "./gallery/certificates/Google Coursera Python Certificate -Steve.jpg",
+    img: "./gallery/certificates/Google Coursera Python Certificate -Steve.webp",
     txt: "Google Python Certified",
   },
   {
-    img: "./gallery/certificates/Steve-Information-System.jpg",
+    img: "./gallery/certificates/Steve-Information-System.webp",
     txt: "Information Systems",
   },
   {
-    img: "./gallery/certificates/Steve-Cyber-Piracy.jpg",
+    img: "./gallery/certificates/Steve-Cyber-Piracy.webp",
     txt: "Cyber Piracy",
   },
   {
-    img: "./gallery/certificates/Steve-Cyber-Law.jpg",
+    img: "./gallery/certificates/Steve-Cyber-Law.webp",
     txt: "Cyber Law",
   },
 ];
@@ -481,7 +484,11 @@ gallery_images.forEach((image_ele) => {
     body.classList.add("modal-open");
     image_viewer_header_text.innerText =
       image_ele.querySelector("h5").innerText;
-    image_viewer_image.src = image_ele.querySelector("img").src;
+    if (image_ele.dataset.highres != "undefined") {
+      image_viewer_image.src = image_ele.dataset.highres;
+    } else {
+      image_viewer_image.src = image_ele.querySelector("img").src;
+    }
     if (image_ele.dataset.link != "undefined") {
       image_viewer_desc_btn.href = image_ele.dataset.link;
       image_viewer_desc_btn.style = "display:block;";
