@@ -329,29 +329,29 @@ gridAppender(platform_grid, platforms);
 // Print
 const print_media = [
   {
-    img: "./gallery/media/magazines/business_insights/business_magazine_preview.jpg",
+    img: "./gallery/media/magazines/business_insights/business_magazine_preview.webp",
     txt: "Business Insights Magazine Article",
     link: "./gallery/media/magazines/business_insights/BUSINESS INSIGHT - FEB 2023 - ISSUE 04-36-37.pdf",
     btnText: "View PDF",
   },
   {
-    img: "./gallery/pope/times of india.jpeg",
+    img: "./gallery/media/print/times_of_india_steve_pope_interaction.webp",
     txt: "Times of India News Steve's Interaction with Pope Francis",
   },
   {
-    img: "./gallery/pope/indian express.jpeg",
+    img: "./gallery/media/print/indian_express_steve_pope_interaction.webp",
     txt: "Indian Express News Steve's Interaction with Pope Francis",
   },
   {
-    img: "./gallery/media/print/i-app-dhanam-article.jpeg",
+    img: "./gallery/media/print/i-app-dhanam-article.webp",
     txt: "i-app Dhanam Article",
   },
   {
-    img: "./gallery/media/print/Indian-Express-article.jpeg",
+    img: "./gallery/media/print/Indian-Express-article.webp",
     txt: "i-app Indian Express",
   },
   {
-    img: "./gallery/media/print/BigCartKeralaTheHindu.png",
+    img: "./gallery/media/print/BigCartKeralaTheHindu.webp",
     txt: "BigCart Kerala on The Hindu",
     link: "https://www.thehindu.com/news/national/kerala/bigcart-kerala-to-cover-more-districts/article32095583.ece",
     btnText: "Link to Article",
