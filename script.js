@@ -1,95 +1,3 @@
-const gridAppender = async (parentElement, gridArray, type = "gallery") => {
-  if (type == "gallery") {
-    gridArray.forEach((gridDet) => {
-      const grid = document.createElement("div");
-      grid.setAttribute("class", "");
-      const image = document.createElement("img");
-      image.src = gridDet.img;
-      if (Object.hasOwn(gridDet, "darkLogo")) {
-        image.setAttribute("class", "cg-icon");
-      }
-      grid.append(image);
-      const txt = document.createElement("h5");
-      txt.innerText = gridDet.txt;
-      grid.append(txt);
-      if (gridDet.link != "") {
-        grid.setAttribute("data-link", gridDet.link);
-      }
-      if (gridDet.highres != "") {
-        grid.setAttribute("data-highres", gridDet.highres);
-      }
-      if (gridDet.btnText != "") {
-        grid.setAttribute("data-btn-text", gridDet.btnText);
-      }
-      parentElement.append(grid);
-    });
-  } else if (type == "portfolio") {
-    gridArray.forEach((gridDet) => {
-      const portfolio_ele = document.createElement("div");
-      portfolio_ele.setAttribute("class", "portfolio_element");
-
-      const portfolio_image = document.createElement("img");
-      portfolio_image.src = gridDet.image;
-      portfolio_ele.append(portfolio_image);
-
-      const title = document.createElement("h2");
-      title.innerText = gridDet.name;
-      portfolio_ele.append(title);
-
-      const desc = document.createElement("p");
-      desc.setAttribute("class", "subtext");
-      desc.innerText = gridDet.desc;
-      portfolio_ele.append(desc);
-
-      const hasWeb = Object.hasOwn(gridDet, "website");
-      const hasPlayStore = Object.hasOwn(gridDet, "playstore");
-      const hasAppStore = Object.hasOwn(gridDet, "appstore");
-
-      if (hasWeb || hasPlayStore || hasAppStore) {
-        const btn_container = document.createElement("div");
-        btn_container.setAttribute("class", "portfolio-btns");
-
-        if (hasPlayStore) {
-          const playstore_btn = document.createElement("a");
-          playstore_btn.href = gridDet.playstore;
-          playstore_btn.target = "_blank";
-          const playstore_img = document.createElement("img");
-          playstore_img.src = "./assets/techlogos/Google Play.svg";
-          playstore_btn.append(playstore_img);
-          btn_container.append(playstore_btn);
-        }
-
-        if (hasWeb) {
-          const web_btn = document.createElement("a");
-          web_btn.href = gridDet.website;
-          web_btn.setAttribute("class", "primary-btn neon-eff");
-          const icon = document.createElement("span");
-          icon.setAttribute("class", "material-symbols-rounded white");
-          icon.innerText = "link";
-          web_btn.append(icon);
-          const btn_text = document.createElement("span");
-          btn_text.setAttribute("class", "portfolio_weblink_text");
-          btn_text.innerText = "View";
-          web_btn.append(btn_text);
-          btn_container.append(web_btn);
-        }
-
-        if (hasAppStore) {
-          const appstore_btn = document.createElement("a");
-          appstore_btn.href = gridDet.appstore;
-          appstore_btn.target = "_blank";
-          const appstore_img = document.createElement("img");
-          appstore_img.src = "./assets/techlogos/App Store.svg";
-          appstore_btn.append(appstore_img);
-          btn_container.append(appstore_btn);
-        }
-        portfolio_ele.append(btn_container);
-      }
-      parentElement.append(portfolio_ele);
-    });
-  }
-};
-
 const portfolio = [
   {
     name: "BigCart Kerala",
@@ -206,9 +114,6 @@ const portfolio = [
     website: "https://ezigroupltd.co.tz/",
   },
 ];
-
-gridAppender(portfolio_grid, portfolio, "portfolio");
-
 const lang_frames = [
   {
     img: "./assets/techlogos/Node.js.svg",
@@ -264,8 +169,6 @@ const lang_frames = [
   },
 ];
 
-gridAppender(lang_frame, lang_frames);
-
 const create_tools_det = [
   {
     img: "./assets/techlogos/Adobe Photoshop.svg",
@@ -288,8 +191,6 @@ const create_tools_det = [
     txt: "Blender",
   },
 ];
-
-gridAppender(create_tools, create_tools_det);
 
 const platforms = [
   {
@@ -323,10 +224,6 @@ const platforms = [
   },
 ];
 
-gridAppender(platform_grid, platforms);
-
-// Gallery
-// Print
 const print_media = [
   {
     img: "./gallery/media/magazines/business_insights/business_magazine_preview.webp",
@@ -357,8 +254,6 @@ const print_media = [
     btnText: "Link to Article",
   },
 ];
-
-gridAppender(print_grid, print_media);
 
 const personalities = [
   {
@@ -398,8 +293,6 @@ const personalities = [
     txt: "Strategic Alliance Partnership with ATOM",
   },
 ];
-
-gridAppender(personalities_grid, personalities);
 
 const certificates = [
   {
@@ -452,8 +345,6 @@ const certificates = [
   },
 ];
 
-gridAppender(certifcate_grid, certificates);
-
 const sessions = [
   {
     img: "./gallery/sessions/Savinova Lecture.webp",
@@ -473,29 +364,139 @@ const sessions = [
   },
 ];
 
-gridAppender(sessions_grid, sessions);
+const gridAppender = async (parentElement, gridArray, type = "gallery") => {
+  const fragment = document.createDocumentFragment(); // Use DocumentFragment to batch DOM updates
 
-const gallery_images = document.querySelectorAll(
-  ".gallery-grid>div:not(.media_element,.portfolio_element)"
-);
-gallery_images.forEach((image_ele) => {
-  image_ele.addEventListener("click", (e) => {
-    image_viewer_dialog.showModal();
-    body.classList.add("modal-open");
-    image_viewer_header_text.innerText =
-      image_ele.querySelector("h5").innerText;
-    if (image_ele.dataset.highres != "undefined") {
-      image_viewer_image.src = image_ele.dataset.highres;
-    } else {
-      image_viewer_image.src = image_ele.querySelector("img").src;
+  gridArray.forEach((gridDet) => {
+    const grid = document.createElement("div");
+
+    if (type === "gallery") {
+      grid.setAttribute("class", "gallery-item"); // Example class for gallery items
+      const image = document.createElement("img");
+      image.src = gridDet.img;
+      image.loading = "lazy"; // Lazy load images
+
+      if (Object.hasOwn(gridDet, "darkLogo")) {
+        image.setAttribute("class", "cg-icon");
+      }
+
+      grid.append(image);
+      const txt = document.createElement("h5");
+      txt.innerText = gridDet.txt;
+      grid.append(txt);
+
+      // Add data attributes only if they exist
+      if (gridDet.link) grid.setAttribute("data-link", gridDet.link);
+      if (gridDet.highres) grid.setAttribute("data-highres", gridDet.highres);
+      if (gridDet.btnText) grid.setAttribute("data-btn-text", gridDet.btnText);
+    } else if (type === "portfolio") {
+      grid.setAttribute("class", "portfolio_element");
+
+      const portfolioImage = document.createElement("img");
+      portfolioImage.src = gridDet.image;
+      portfolioImage.loading = "lazy";
+      grid.append(portfolioImage);
+
+      const title = document.createElement("h2");
+      title.innerText = gridDet.name;
+      grid.append(title);
+
+      const desc = document.createElement("p");
+      desc.setAttribute("class", "subtext");
+      desc.innerText = gridDet.desc;
+      grid.append(desc);
+
+      const btnContainer = document.createElement("div");
+      btnContainer.setAttribute("class", "portfolio-btns");
+
+      if (gridDet.playstore) {
+        const playstoreBtn = createLinkButton(
+          gridDet.playstore,
+          "",
+          "./assets/techlogos/Google Play.svg"
+        );
+        btnContainer.append(playstoreBtn);
+      }
+
+      if (gridDet.website) {
+        const webBtn = createLinkButton(gridDet.website, "View", "");
+        webBtn.setAttribute("class", "primary-btn neon-eff");
+        btnContainer.append(webBtn);
+      }
+
+      if (gridDet.appstore) {
+        const appstoreBtn = createLinkButton(
+          gridDet.appstore,
+          "",
+          "./assets/techlogos/App Store.svg"
+        );
+        btnContainer.append(appstoreBtn);
+      }
+
+      if (btnContainer.children.length > 0) {
+        grid.append(btnContainer);
+      }
     }
-    if (image_ele.dataset.link != "undefined") {
-      image_viewer_desc_btn.href = image_ele.dataset.link;
-      image_viewer_desc_btn.style = "display:block;";
-      image_viewer_desc_btn.innerText = image_ele.dataset.btnText;
-    } else {
-      image_viewer_desc_btn.style = "display:none;";
-    }
+
+    fragment.appendChild(grid);
+  });
+
+  parentElement.appendChild(fragment);
+};
+
+// Utility function for creating link buttons
+const createLinkButton = (href, text, imgSrc) => {
+  const link = document.createElement("a");
+  link.href = href;
+  link.target = "_blank";
+
+  if (imgSrc) {
+    const img = document.createElement("img");
+    img.src = imgSrc;
+    link.append(img);
+  }
+  if (text != "") {
+    const span = document.createElement("span");
+    span.innerText = text;
+    link.append(span);
+  }
+
+  return link;
+};
+
+// Lazy load gallery and portfolio grids
+requestIdleCallback(() => {
+  gridAppender(portfolio_grid, portfolio, "portfolio");
+  gridAppender(lang_frame, lang_frames);
+  gridAppender(create_tools, create_tools_det);
+  gridAppender(platform_grid, platforms);
+  gridAppender(print_grid, print_media);
+  gridAppender(personalities_grid, personalities);
+  gridAppender(certifcate_grid, certificates);
+  gridAppender(sessions_grid, sessions);
+});
+
+// Lazy load event listeners for gallery
+requestIdleCallback(() => {
+  const gallery_images = document.querySelectorAll(
+    ".gallery-grid>div:not(.media_element,.portfolio_element)"
+  );
+  gallery_images.forEach((image_ele) => {
+    image_ele.addEventListener("click", (e) => {
+      image_viewer_dialog.showModal();
+      body.classList.add("modal-open");
+      image_viewer_header_text.innerText =
+        image_ele.querySelector("h5").innerText;
+      image_viewer_image.src =
+        image_ele.dataset.highres || image_ele.querySelector("img").src;
+      if (image_ele.dataset.link) {
+        image_viewer_desc_btn.href = image_ele.dataset.link;
+        image_viewer_desc_btn.style = "display:block;";
+        image_viewer_desc_btn.innerText = image_ele.dataset.btnText;
+      } else {
+        image_viewer_desc_btn.style = "display:none;";
+      }
+    });
   });
 });
 
@@ -504,71 +505,52 @@ function close_popup(e) {
   e.parentElement.parentElement.parentElement.close();
 }
 
-//  Theme
+// Optimize theme toggler
 const root = document.querySelector(":root");
 var theme = window.localStorage.getItem("theme");
 
-if (theme === null) {
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    window.localStorage.setItem("theme", "dark");
-    theme = "dark";
-  } else {
-    window.localStorage.setItem("theme", "light");
-    theme = "light";
-  }
-}
-if (theme !== null) {
+const applyTheme = (theme) => {
   root.style.setProperty("color-scheme", theme);
-  themetoggler.innerText = theme + "_mode";
-  if (theme === "dark") {
-    body.classList.add("darkbg");
-  } else {
-    body.classList.remove("darkbg");
-  }
+  themetoggler.innerText = `${theme}_mode`;
+  body.classList.toggle("darkbg", theme === "dark");
+};
+
+if (!theme) {
+  theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+  window.localStorage.setItem("theme", theme);
 }
+applyTheme(theme);
 
 const toggletheme = () => {
-  if (theme === null) {
-    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-      theme = "dark";
-      window.localStorage.setItem("theme", "dark");
-      body.classList.add("darkbg");
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      theme = "light";
-      window.localStorage.setItem("theme", "light");
-      body.classList.remove("darkbg");
-    }
-  } else if (theme !== null) {
-    if (theme === "light") {
-      theme = "dark";
-      window.localStorage.setItem("theme", "dark");
-      body.classList.add("darkbg");
-    } else if (theme === "dark") {
-      theme = "light";
-      window.localStorage.setItem("theme", "light");
-      body.classList.remove("darkbg");
-    }
-  }
-  themetoggler.innerText = theme + "_mode";
-  root.style.setProperty("color-scheme", theme);
+  theme = theme === "light" ? "dark" : "light";
+  window.localStorage.setItem("theme", theme);
+  applyTheme(theme);
 };
 
+// Scroll event optimized for active link highlighting
 const sections = document.querySelectorAll("section");
 const links = document.querySelectorAll(".menu-link");
-window.onscroll = () => {
-  var current = "home";
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-    if (pageYOffset >= sectionTop - 200) {
-      current = section.getAttribute("id");
+
+let lastActive = "home";
+window.addEventListener(
+  "scroll",
+  () => {
+    let current = lastActive;
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      if (pageYOffset >= sectionTop - 200) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    if (current !== lastActive) {
+      lastActive = current;
+      links.forEach((link) => {
+        link.classList.toggle("active", link.href.includes(current));
+      });
     }
-  });
-  links.forEach((link) => {
-    link.classList.remove("active");
-    if (link.href.includes(current)) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
-    }
-  });
-};
+  },
+  { passive: true }
+);
