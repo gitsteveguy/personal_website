@@ -152,6 +152,14 @@ const lang_frames = [
     txt: "Python",
   },
   {
+    img: "./assets/techlogos/NumPy.svg",
+    txt: "NumPy",
+  },
+  {
+    img: "./assets/techlogos/Pandas.svg",
+    txt: "Pandas",
+  },
+  {
     img: "./assets/techlogos/C.svg",
     txt: "C",
   },
@@ -221,6 +229,18 @@ const platforms = [
   {
     img: "./assets/techlogos/Firebase.svg",
     txt: "Firebase",
+  },
+  {
+    img: "./assets/techlogos/MySQL.svg",
+    txt: "MySQL",
+  },
+  {
+    img: "./assets/techlogos/MongoDB.svg",
+    txt: "MongoDB",
+  },
+  {
+    img: "./assets/techlogos/SQLite.svg",
+    txt: "SQLite",
   },
 ];
 
