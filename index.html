@@ -23,7 +23,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Steve Sajan Jacob" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="stylesheet" href="styles.min.css" />
     <link rel="stylesheet" href="utils.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,9 +32,610 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&text=home,person,workspace_premium,code,work,photo_library,dark_mode"
     />
   </head>
+  <style>
+    @import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap);
+    :root {
+      color-scheme: dark light;
+      --default-text-color: light-dark(black, white);
+      --invert-icon: light-dark(0, 1);
+      --bg-color: light-dark(white, black);
+      --primary-color: light-dark(#0505a0, deepskyblue);
+      --text-white: light-dark(#0505a0, white);
+      --subtext-color: light-dark(#525252, #999999);
+      --shadow-color: light-dark(#808080c7, #3939395e);
+      --glass-bg: light-dark(#47474765, hsla(0, 0%, 21%, 0.8));
+      --header-bg: light-dark(hsla(0, 0%, 100%, 0.614), hsla(0, 0%, 0%, 0.614));
+      --mgr-color-1: hsl(223, 98%, 25%);
+      --mgr-color-2: rgb(137, 2, 149);
+      --white: white;
+    }
+    * {
+      color: var(--default-text-color);
+      font-family: "Roboto Condensed", sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding: 90px;
+      display: flex;
+      justify-content: center;
+    }
+    body {
+      background-size: 100% 100%;
+      background-attachment: fixed;
+      background: var(--bg-color);
+      background-repeat: no-repeat;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    body.darkbg {
+      --bg-color: linear-gradient(95deg, #021527, black 40%, #280101 95%);
+    }
+    h1 {
+      font-size: 3rem;
+    }
+    .zoom {
+      transition: all 300ms ease-in;
+    }
+    .zoom:hover {
+      scale: 1.25;
+    }
+    .gradient-text {
+      color: unset;
+      background: linear-gradient(
+          95deg,
+          #059dff 15%,
+          #6549d5 45%,
+          #e33fa1 75%,
+          #43fbe3 100%
+        )
+        98% / 200% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: #fff0;
+    }
+    .glass {
+      background: #ffffff5f;
+      box-shadow: 0 8px 32px 0 var(--shadow-color);
+      backdrop-filter: blur(2px);
+      border: 1px solid #5757575e;
+    }
+    .glass:hover {
+      background: #98dbec26;
+    }
+    header {
+      z-index: 9999;
+      width: 100%;
+      height: fit-content;
+      position: fixed;
+      top: 0;
+      background: var(--header-bg);
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      padding: 0.5rem 0.25rem;
+      nav {
+        display: flex;
+        justify-content: center;
+        menu {
+          display: flex;
+          gap: 2rem;
+          padding: 0;
+          appearance: none;
+          justify-content: center;
+          li {
+            list-style: none;
+            cursor: pointer;
+            a {
+              text-decoration: none;
+              color: var(--subtext-color);
+              text-wrap: nowrap;
+            }
+            a:hover {
+              color: var(--primary-color) !important;
+            }
+          }
+        }
+      }
+    }
+    .menu-subitem {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: inherit;
+      .m-icon {
+        color: inherit;
+      }
+      .menu-subtext {
+        font-size: small;
+        color: inherit;
+        font-weight: 700;
+      }
+    }
+    .menu-link.active {
+      color: var(--primary-color);
+    }
+    .m0 {
+      margin: 0;
+    }
+    section {
+      h1 {
+        text-align: center;
+      }
+      .subtext {
+        text-align: center;
+      }
+      h1.subtext {
+        margin: 0;
+      }
+    }
+    .primary-text {
+      color: var(--primary-color);
+    }
+    .white-text {
+      color: var(--text-white);
+    }
+    .primary-btn {
+      display: flex;
+      align-items: center;
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 0.25em 1em;
+      border-radius: 24px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .primary-btn.neon-eff {
+      background: none;
+    }
+    .subtext {
+      color: #999;
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+      }
+    }
+    .white {
+      color: var(--white);
+    }
+    #hero {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 100svh;
+      gap: 1rem;
+      .hero-img {
+        height: 50svh;
+        aspect-ratio: 1/1;
+        border: 1px dashed var(--primary-color);
+        border-radius: 50%;
+      }
+    }
+    .herobtns {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      a {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+    }
+    .darkbg .cg-icon {
+      filter: invert(1);
+    }
+    .socials-icons {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 1rem;
+      img {
+        width: 2rem;
+        aspect-ratio: 1/1;
+        color: #fff;
+        transition: all 100ms ease-in;
+      }
+      img:hover {
+        scale: 1.25;
+        rotate: 30deg;
+      }
+    }
+    #m-video {
+      width: 50%;
+      aspect-ratio: 16/9;
+    }
+    #about-me {
+      height: 70svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 6rem 1rem;
+    }
+    #about {
+      display: flex;
+      gap: 2rem;
+      justify-content: space-around;
+      align-items: center;
+      img {
+        max-height: 50svh;
+      }
+    }
+    #about-text {
+      width: 50%;
+    }
+    .grid-section {
+      margin: 3rem 0 3rem 0;
+    }
+    .grid-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      grid-gap: 3rem;
+      justify-content: center;
+      div {
+        display: flex;
+        padding: 1rem;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        border-radius: 36px;
+        h5 {
+          margin: 0;
+          padding: 0;
+          color: var(--default-text-color);
+        }
+      }
+    }
+    .tech-grid {
+      div {
+        max-width: 7rem;
+        min-height: 7rem;
+        aspect-ratio: 1/1;
+        img {
+          max-height: 6rem;
+          max-width: 6rem;
+          object-fit: fill;
+          aspect-ratio: 1/1;
+        }
+      }
+    }
+    #gallery-container {
+      margin-top: 1rem;
+    }
+    .gallery-grid {
+      div {
+        cursor: pointer;
+        max-width: 12rem;
+        gap: 0.5rem;
+        padding: 2rem;
+        aspect-ratio: 1/1;
+        justify-content: flex-start;
+        aspect-ratio: 16/9;
+        iframe {
+          width: 100%;
+          aspect-ratio: 16/9;
+          border-radius: 36px;
+        }
+        video {
+          width: 100%;
+          border-radius: 36px;
+          height: 100%;
+        }
+        img {
+          width: 15rem;
+          object-fit: fill;
+          aspect-ratio: 16/9;
+          border-radius: 12px;
+        }
+      }
+    }
+    #mentions_grid > div {
+      background: var(--glass-bg);
+    }
+    #media_grid > div {
+      background: var(--glass-bg);
+    }
+    .twitter-tweet {
+      width: fit-content !important;
+    }
+    .media_element {
+      min-width: 20rem;
+      padding: 0.3rem !important;
+    }
+    #portfolio_grid {
+      gap: 1rem;
+    }
+    .portfolio_element {
+      background: transparent !important;
+      min-width: 18rem;
+      padding: 1rem !important;
+      overflow: hidden;
+      border-radius: 0 !important;
+      min-height: 12rem !important;
+      gap: 0.7rem !important;
+      aspect-ratio: unset !important;
+      h2 {
+        margin: 0;
+        text-wrap: nowrap;
+      }
+      p {
+        margin: 0;
+      }
+      & > img {
+        width: 30rem !important;
+        aspect-ratio: unset !important;
+      }
+    }
+    .portfolio-btns {
+      display: flex;
+      flex-direction: row !important;
+      justify-content: center !important;
+      align-items: center;
+      background: transparent !important;
+      border-radius: 0 !important;
+      aspect-ratio: unset !important;
+      padding: 0 !important;
+      img {
+        width: 4rem !important;
+      }
+      .portfolio_weblink_text {
+        color: #fff;
+      }
+    }
+    #whatsapp-chat {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      img {
+        width: 10vw;
+        max-width: 5rem;
+        animation: scaleupanddown infinite 1800ms linear;
+      }
+    }
+    @keyframes scaleupanddown {
+      0% {
+        scale: 1;
+      }
+      50% {
+        scale: 1.25;
+      }
+      100% {
+        scale: 1;
+      }
+    }
+    .popups {
+      margin: auto;
+      padding: auto;
+      width: 80%;
+      border-radius: 1rem;
+      padding: 1rem;
+      border-radius: 36px;
+      border: none;
+      overflow-x: hidden;
+      padding: 1rem;
+      background: #fff0;
+    }
+    .image_viewer_container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      border-radius: 36px;
+      background: var(--glass-bg);
+      padding: 1rem;
+      p {
+        color: var(--secondary-color) !important;
+        text-align: left;
+      }
+    }
+    .image_viewer_image_container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #image_viewer_image {
+      object-fit: fill;
+      width: 90%;
+      text-align: center;
+      border-radius: 36px;
+    }
+    .popup-close-btn {
+      border: none;
+      appearance: none;
+      aspect-ratio: 1/1;
+      border-radius: 36px;
+      width: 2rem;
+      height: 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      background: #99999931;
+    }
+    .popup-close-btn:hover {
+      background: #99999981;
+    }
+    .popup-close-btn:focus {
+      outline: none;
+    }
+    .image-viewer-header {
+      display: flex;
+      justify-content: space-between;
+      h2 {
+        color: #fff;
+      }
+    }
+    body.modal-open {
+      overflow: hidden;
+    }
+    .popups .close {
+      display: flex;
+      align-items: center;
+    }
+    ::backdrop {
+      background: #000;
+      opacity: 0.75;
+    }
+    #hero-txt {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    @media screen and (max-width: 920px) {
+      #m-video {
+        width: 100%;
+      }
+      .img-des {
+        flex-direction: column-reverse;
+        justify-content: center !important;
+      }
+      #hero {
+        gap: 0;
+        #hero-txt {
+          margin-top: 2rem;
+          gap: 1.5rem;
+          h1 {
+            font-size: xx-large;
+          }
+        }
+        img.hero-img {
+          position: relative;
+          z-index: 5;
+          max-height: 34svh;
+        }
+      }
+      .gallery-grid {
+        div {
+          max-width: 10rem;
+          padding: 1rem;
+          img {
+            width: 9rem;
+          }
+        }
+      }
+      #about-me {
+        height: unset;
+      }
+      #about-text {
+        width: 100%;
+      }
+    }
+    @media screen and (max-width: 680px) {
+      #hero-txt {
+      }
+      header {
+        nav {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+          }
+        }
+      }
+      #hero {
+        gap: 0;
+        img.hero-img {
+          position: relative;
+          max-height: 33svh;
+          z-index: 5;
+        }
+      }
+      .tech-grid > div {
+        min-width: 5rem;
+        min-height: 5rem;
+        max-width: 5rem;
+        max-height: 5rem;
+        font-size: small;
+      }
+      .gallery-grid {
+        gap: 2rem;
+        div {
+          font-size: small;
+          max-width: 6rem;
+          img {
+            width: 8rem;
+          }
+        }
+      }
+      #hero-txt {
+        a {
+          font-size: medium;
+        }
+      }
+    }
+    @media screen and (max-width: 680px) {
+      .menu-subtext {
+        display: none;
+      }
+      nav {
+        padding: 0 0.25rem;
+      }
+      #hero-txt {
+        h1 {
+          font-size: x-large;
+        }
+      }
+    }
+    @media screen and (max-width: 400px) {
+      #hero {
+        justify-content: center;
+        img.hero-img {
+          position: relative;
+          margin-bottom: 0;
+          margin-top: 3em;
+          z-index: 5;
+          max-height: 26svh;
+        }
+      }
+      #hero-txt {
+        h1 {
+          font-size: 1.25rem;
+        }
+        .subtext {
+          font-size: 1rem;
+        }
+        a {
+          font-size: 0.8rem;
+        }
+      }
+      .media_element {
+        min-width: 18rem;
+        padding: 0.3rem !important;
+      }
+      .portfolio_element {
+        min-width: 18rem;
+        padding: 0.3rem !important;
+      }
+    }
+    @media screen and (max-width: 375px) {
+      menu {
+        gap: 1.25rem !important;
+      }
+    }
+    @media (prefers-color-scheme: light) {
+      .glass {
+        border: 2px solid #e6effe;
+        box-shadow: 0 0rem 2rem 0 #b5b5b5;
+      }
+    }
+  </style>
   <header>
     <nav>
       <menu>
@@ -177,7 +777,6 @@
         src="./assets/steveheroimg.webp"
         class="hero-img"
         alt="Steve Sajan Jacob"
-        loading="lazy"
       />
     </section>
     <section id="about-me">
@@ -398,7 +997,447 @@
     </div>
   </dialog>
   <footer>
-    <script src="script.min.js"></script>
+    <script>
+      const root = document.querySelector(":root");
+      var theme = window.localStorage.getItem("theme");
+      const applyTheme = (e) => {
+        root.style.setProperty("color-scheme", e),
+          (themetoggler.innerText = `${e}_mode`),
+          body.classList.toggle("darkbg", "dark" === e);
+      };
+      theme ||
+        ((theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light"),
+        window.localStorage.setItem("theme", theme)),
+        applyTheme(theme);
+      const toggletheme = () => {
+          (theme = "light" === theme ? "dark" : "light"),
+            window.localStorage.setItem("theme", theme),
+            applyTheme(theme);
+        },
+        portfolio = [
+          {
+            name: "BigCart Kerala",
+            image: "./gallery/portfolio/bigcartkerala-portfolio.webp",
+            desc: "Hyper Local e-Commerce Platform.",
+            website: "https://portfolio.stevesajanjacob.com/bigcartkerala",
+          },
+          {
+            name: "Kerala CSC VLE",
+            image: "./gallery/portfolio/Kerala-CSC-Portfolio-image.webp",
+            desc: "Member Management & Services Platform.",
+            website: "https://portfolio.stevesajanjacob.com/keralacsc",
+            playstore:
+              "https://play.google.com/store/apps/details?id=com.keralacsc.twa",
+          },
+          {
+            name: "UPM Technical Services",
+            image: "./gallery/portfolio/upmtechservices-portfolio.webp",
+            desc: "Handyman Services Platform.",
+            website: "https://portfolio.stevesajanjacob.com/upmservices/",
+            playstore:
+              "https://play.google.com/store/apps/details?id=com.upmtechservices.twa",
+            appstore:
+              "https://apps.apple.com/us/app/upm-tech-services/id6670204211",
+          },
+          {
+            name: "e-Sahai",
+            image: "./gallery/portfolio/esahai_portfolio.webp",
+            desc: "Handyman Services Platform.",
+            website: "https://portfolio.stevesajanjacob.com/esahai",
+          },
+          {
+            name: "BigCart Abu Dhabi",
+            image: "./gallery/portfolio/Bigcart-Abudhabi-portfolio.webp",
+            desc: "Hyper Local e-Commerce Platform.",
+            website: "https://portfolio.stevesajanjacob.com/bigcartabudhabi/",
+            playstore:
+              "https://play.google.com/store/apps/details?id=com.bigcartabudhabi.twa",
+          },
+          {
+            name: "African Digital Business Summit",
+            image: "./gallery/portfolio/ADBS-Portfolio-image.webp",
+            desc: "Event Management Platform.",
+            website: "https://portfolio.stevesajanjacob.com/adbs/",
+          },
+          {
+            name: "Ezimart Qatar",
+            image: "./gallery/portfolio/ezimartonline-portfolio.webp",
+            desc: "Multivendor e-Commerce Platform.",
+            website: "https://portfolio.stevesajanjacob.com/ezimart/",
+          },
+          {
+            name: "Fishbar",
+            image: "./gallery/portfolio/fishbar-portfolio.webp",
+            desc: "Delivery Tech e-Commerce Platform.",
+            website: "https://portfolio.stevesajanjacob.com/fishbar/",
+            playstore:
+              "https://play.google.com/store/apps/details?id=in.fishbar.twa",
+            appstore: "https://apps.apple.com/us/app/fish-bar/id1618020502",
+          },
+          {
+            name: "Matsyafed Freshmeen",
+            image: "./gallery/portfolio/matsyafed-freshmeen.webp",
+            desc: "Delivery Tech e-Commerce Platform.",
+            website: "https://matsyafedfreshmeen.com/",
+          },
+          {
+            name: "Venad Farms",
+            image: "./gallery/portfolio/venad-farms-portfolio.webp",
+            desc: "Delivery Tech e-Commerce Platform.",
+            website: "https://portfolio.stevesajanjacob.com/venadfarms/",
+            playstore:
+              "https://play.google.com/store/apps/details?id=in.venadfarms.twa",
+          },
+          {
+            name: "Pinkshopz",
+            image: "./gallery/portfolio/pinkshopz-portfolio.webp",
+            desc: "B2B2C Platform.",
+            website: "https://portfolio.stevesajanjacob.com/pinkshopz/",
+          },
+          {
+            name: "IronBoy",
+            image: "./gallery/portfolio/ironboy-portfolio.webp",
+            desc: "Services Delivery Platform.",
+            website: "https://portfolio.stevesajanjacob.com/ironboy/",
+            playstore:
+              "https://play.google.com/store/apps/details?id=in.ironboy.twa",
+          },
+          {
+            name: "The Snake Park",
+            image: "./gallery/portfolio/snakepark-portfolio.webp",
+            desc: "Information & Services Platform.",
+            website: "https://portfolio.stevesajanjacob.com/snakepark/",
+          },
+          {
+            name: "Hug a Mug Cafe - Tanzania",
+            image: "./gallery/portfolio/hugamug-portfolio.webp",
+            desc: "Resto-Bar Services & Booking Platform",
+            website: "https://hugamug.tz/",
+          },
+          {
+            name: "Shinshiva Ayurveda",
+            image: "./gallery/portfolio/shinshiva-portfolio.webp",
+            desc: "Resort Management Platform",
+            website: "https://portfolio.stevesajanjacob.com/shinshiva/",
+          },
+          {
+            name: "Kavitha Family Salon",
+            image: "./gallery/portfolio/kavitha-family-salon-portfolio.webp",
+            desc: "Information & Services Platform",
+            website: "https://kavithasfamilysalon.com/",
+          },
+          {
+            name: "Ezi Group Ltd",
+            image: "./gallery/portfolio/ezigroupltd-portfolio.webp",
+            desc: "Business Services Platform",
+            website: "https://ezigroupltd.co.tz/",
+          },
+        ],
+        lang_frames = [
+          { img: "./assets/techlogos/Node.js.svg", txt: "Node Js" },
+          { img: "./assets/techlogos/React.svg", txt: "React" },
+          { img: "./assets/techlogos/Babel.svg", txt: "Babel" },
+          { img: "./assets/techlogos/PHP.svg", txt: "PHP" },
+          { img: "./assets/techlogos/Bootstrap.svg", txt: "Bootstrap" },
+          { img: "./assets/techlogos/HTML5.svg", txt: "HTML5" },
+          { img: "./assets/techlogos/CSS3.svg", txt: "CSS" },
+          { img: "./assets/techlogos/JavaScript.svg", txt: "Javascript" },
+          { img: "./assets/techlogos/Python.svg", txt: "Python" },
+          { img: "./assets/techlogos/NumPy.svg", txt: "NumPy" },
+          { img: "./assets/techlogos/Pandas.svg", txt: "Pandas" },
+          { img: "./assets/techlogos/C.svg", txt: "C" },
+          { img: "./assets/techlogos/C++ (CPlusPlus).svg", txt: "C++" },
+          { img: "./assets/techlogos/Java.svg", txt: "Java" },
+          { img: "./assets/techlogos/Selenium.svg", txt: "Selenium" },
+        ],
+        create_tools_det = [
+          { img: "./assets/techlogos/Adobe Photoshop.svg", txt: "Photoshop" },
+          {
+            img: "./assets/techlogos/Adobe Premiere Pro.svg",
+            txt: "Premier Pro",
+          },
+          { img: "./assets/techlogos/After Effects.svg", txt: "After Effects" },
+          { img: "./assets/techlogos/Figma.svg", txt: "Figma" },
+          { img: "./assets/techlogos/Blender.svg", txt: "Blender" },
+        ],
+        platforms = [
+          {
+            img: "./assets/techlogos/GitHub.svg",
+            txt: "Github",
+            darkLogo: "true",
+          },
+          { img: "./assets/techlogos/Cloudflare.svg", txt: "CloudFlare" },
+          { img: "./assets/techlogos/Google Cloud.svg", txt: "Google Cloud" },
+          { img: "./assets/techlogos/Jupyter.svg", txt: "Jupyter" },
+          { img: "./assets/techlogos/Docker.svg", txt: "Docker" },
+          {
+            img: "./assets/techlogos/Visual Studio Code (VS Code).svg",
+            txt: "Visual Studio Code",
+          },
+          { img: "./assets/techlogos/Firebase.svg", txt: "Firebase" },
+          { img: "./assets/techlogos/MySQL.svg", txt: "MySQL" },
+          { img: "./assets/techlogos/MongoDB.svg", txt: "MongoDB" },
+          { img: "./assets/techlogos/SQLite.svg", txt: "SQLite" },
+        ];
+      function close_popup(e) {
+        body.classList.remove("modal-open"),
+          e.parentElement.parentElement.parentElement.close();
+      }
+      (print_media = [
+        {
+          img: "./gallery/media/magazines/business_insights/business_magazine_preview.webp",
+          txt: "Business Insights Magazine Article",
+          link: "./gallery/media/magazines/business_insights/BUSINESS INSIGHT - FEB 2023 - ISSUE 04-36-37.pdf",
+          btnText: "View PDF",
+        },
+        {
+          img: "./gallery/media/print/times_of_india_steve_pope_interaction.webp",
+          txt: "Times of India News Steve's Interaction with Pope Francis",
+        },
+        {
+          img: "./gallery/media/print/indian_express_steve_pope_interaction.webp",
+          txt: "Indian Express News Steve's Interaction with Pope Francis",
+        },
+        {
+          img: "./gallery/media/print/i-app-dhanam-article.webp",
+          txt: "i-app Dhanam Article",
+        },
+        {
+          img: "./gallery/media/print/Indian-Express-article.webp",
+          txt: "i-app Indian Express",
+        },
+        {
+          img: "./gallery/media/print/BigCartKeralaTheHindu.webp",
+          txt: "BigCart Kerala on The Hindu",
+          link: "https://www.thehindu.com/news/national/kerala/bigcart-kerala-to-cover-more-districts/article32095583.ece",
+          btnText: "Link to Article",
+        },
+      ]),
+        (personalities = [
+          {
+            img: "./gallery/personalities/shashi-tharoor.webp",
+            txt: "With Hon.MP Dr Shashi Tharoor",
+          },
+          {
+            img: "./gallery/personalities/steve-with-rajeev-chandrashekar.webp",
+            txt: "With Hon.Ex-Minister of State Rajeev Chandrashekar",
+          },
+          {
+            img: "./gallery/personalities/steve-with-Ambassador-T.P-Srinivasan.webp",
+            txt: "With Hon. Ex-Ambassador Dr.T.P Sreenivasan",
+          },
+          {
+            img: "./gallery/personalities/steve-with-royal-family.webp",
+            txt: "With Royal Famiy of Trivandrum",
+          },
+          {
+            img: "./gallery/personalities/hybi-eden.webp",
+            txt: "With Hon.MP Hybi Eden",
+          },
+          {
+            img: "./gallery/personalities/pj-joseph.webp",
+            txt: "With Hon.Ex-Minister P.J Joseph",
+          },
+          {
+            img: "./gallery/personalities/Prashant-Kumar-Mishra.webp",
+            txt: "With Hon. Collector Prashant Kumar Mishra",
+          },
+          {
+            img: "./gallery/personalities/worldline.webp",
+            txt: "Strategic Alliance Partnership with ATOS Worldline",
+          },
+          {
+            img: "./gallery/personalities/atom.webp",
+            txt: "Strategic Alliance Partnership with ATOM",
+          },
+        ]),
+        (certificates = [
+          {
+            img: "./gallery/certificates/IBM Generative AI Applications.webp",
+            txt: "IBM Certified in Generative AI: Applications",
+          },
+          {
+            img: "./gallery/certificates/IBM Generative AI Prompt Engineering Basics.webp",
+            txt: "IBM Certified in Generative AI: Prompt Engineering Basics",
+          },
+          {
+            img: "./gallery/certificates/IBM Intro to AI.webp",
+            txt: "IBM Certified in Introduction to Artificial Intelligence",
+          },
+          {
+            img: "./gallery/certificates/IBM Intro to SE .webp",
+            txt: "IBM Certified in Introduction to Software Engineering",
+          },
+          {
+            img: "./gallery/certificates/IBM - HTML CSS & Javascript.webp",
+            txt: "IBM Certified in Introduction to HTML, CSS & JavaScript",
+          },
+          {
+            img: "./gallery/certificates/Googles-digital-marketing-certificate-of-Steve.webp",
+            txt: "Google Digital Marketing Expert",
+          },
+          {
+            img: "./gallery/certificates/Google Advanced Analytics Steve.webp",
+            txt: "Google Advanced Analytics",
+          },
+          {
+            img: "./gallery/certificates/Steve-Sajan-Jacob-AWS-Solutions-Architect-Certificate.webp",
+            txt: "AWS Solutions Architect",
+          },
+          {
+            img: "./gallery/certificates/Google Coursera Python Certificate -Steve.webp",
+            txt: "Google Python Certified",
+          },
+          {
+            img: "./gallery/certificates/Steve-Information-System.webp",
+            txt: "Information Systems",
+          },
+          {
+            img: "./gallery/certificates/Steve-Cyber-Piracy.webp",
+            txt: "Cyber Piracy",
+          },
+          {
+            img: "./gallery/certificates/Steve-Cyber-Law.webp",
+            txt: "Cyber Law",
+          },
+        ]),
+        (sessions = [
+          {
+            img: "./gallery/sessions/Savinova Lecture.webp",
+            txt: "Talk on Roadmap to Young Technopreneur",
+          },
+          {
+            img: "./gallery/sessions/Replit.webp",
+            txt: "Workshop on Online & AI Based IDEs",
+          },
+          {
+            img: "./gallery/sessions/Quantum-Computing.webp",
+            txt: "Talk on Quantum Computing for Computer Society of India",
+          },
+          {
+            img: "./gallery/sessions/Business Conference.webp",
+            txt: "Talk on AI Integration in Banking Services at Banking Conclave",
+          },
+        ]),
+        (gridAppender = async (e, t, a = "gallery") => {
+          let s = document.createDocumentFragment();
+          t.forEach((e) => {
+            let t = document.createElement("div");
+            if ("gallery" === a) {
+              t.setAttribute("class", "gallery-item");
+              let o = document.createElement("img");
+              (o.src = e.img),
+                (o.loading = "lazy"),
+                Object.hasOwn(e, "darkLogo") &&
+                  o.setAttribute("class", "cg-icon"),
+                t.append(o);
+              let i = document.createElement("h5");
+              (i.innerText = e.txt),
+                t.append(i),
+                e.link && t.setAttribute("data-link", e.link),
+                e.highres && t.setAttribute("data-highres", e.highres),
+                e.btnText && t.setAttribute("data-btn-text", e.btnText);
+            } else if ("portfolio" === a) {
+              t.setAttribute("class", "portfolio_element");
+              let r = document.createElement("img");
+              (r.src = e.image), (r.loading = "lazy"), t.append(r);
+              let l = document.createElement("h2");
+              (l.innerText = e.name), t.append(l);
+              let n = document.createElement("p");
+              n.setAttribute("class", "subtext"),
+                (n.innerText = e.desc),
+                t.append(n);
+              let g = document.createElement("div");
+              if ((g.setAttribute("class", "portfolio-btns"), e.playstore)) {
+                let p = createLinkButton(
+                  e.playstore,
+                  "",
+                  "./assets/techlogos/Google Play.svg"
+                );
+                g.append(p);
+              }
+              if (e.website) {
+                let m = createLinkButton(e.website, "View", "");
+                m.setAttribute("class", "primary-btn neon-eff"), g.append(m);
+              }
+              if (e.appstore) {
+                let c = createLinkButton(
+                  e.appstore,
+                  "",
+                  "./assets/techlogos/App Store.svg"
+                );
+                g.append(c);
+              }
+              g.children.length > 0 && t.append(g);
+            }
+            s.appendChild(t);
+          }),
+            e.appendChild(s);
+        }),
+        (createLinkButton = (e, t, a) => {
+          let s = document.createElement("a");
+          if (((s.href = e), (s.target = "_blank"), a)) {
+            let o = document.createElement("img");
+            (o.src = a), s.append(o);
+          }
+          if ("" != t) {
+            let i = document.createElement("span");
+            (i.innerText = t), s.append(i);
+          }
+          return s;
+        }),
+        requestIdleCallback(() => {
+          gridAppender(portfolio_grid, portfolio, "portfolio"),
+            gridAppender(lang_frame, lang_frames),
+            gridAppender(create_tools, create_tools_det),
+            gridAppender(platform_grid, platforms),
+            gridAppender(print_grid, print_media),
+            gridAppender(personalities_grid, personalities),
+            gridAppender(certifcate_grid, certificates),
+            gridAppender(sessions_grid, sessions);
+        }),
+        requestIdleCallback(() => {
+          document
+            .querySelectorAll(
+              ".gallery-grid>div:not(.media_element,.portfolio_element)"
+            )
+            .forEach((e) => {
+              e.addEventListener("click", (t) => {
+                image_viewer_dialog.showModal(),
+                  body.classList.add("modal-open"),
+                  (image_viewer_header_text.innerText =
+                    e.querySelector("h5").innerText),
+                  (image_viewer_image.src =
+                    e.dataset.highres || e.querySelector("img").src),
+                  e.dataset.link
+                    ? ((image_viewer_desc_btn.href = e.dataset.link),
+                      (image_viewer_desc_btn.style = "display:block;"),
+                      (image_viewer_desc_btn.innerText = e.dataset.btnText))
+                    : (image_viewer_desc_btn.style = "display:none;");
+              });
+            });
+        }),
+        (sections = document.querySelectorAll("section")),
+        (links = document.querySelectorAll(".menu-link"));
+      let lastActive = "home";
+      window.addEventListener(
+        "scroll",
+        () => {
+          let e = lastActive;
+          sections.forEach((t) => {
+            pageYOffset >= t.offsetTop - 200 && (e = t.getAttribute("id"));
+          }),
+            e !== lastActive &&
+              ((lastActive = e),
+              links.forEach((t) => {
+                t.classList.toggle("active", t.href.includes(e));
+              }));
+        },
+        { passive: !0 }
+      );
+    </script>
     <script
       async
       src="https://platform.twitter.com/widgets.js"
